@@ -1,11 +1,19 @@
 
 #Proyecto_PHP
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cff1196a8b0f23ab8f0748462bf14e37014d3971
 Proyecto usando unicamente PHP, HTML y CSS con el framework bootstrap
 
 10-04-2025: Gestion de usuarios funcionando
 
+<<<<<<< HEAD
 TO-DO:
+=======
+TO-DO: 
+>>>>>>> cff1196a8b0f23ab8f0748462bf14e37014d3971
 
 Crear las vistas para usuario Free y usuario Premium
 
