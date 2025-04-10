@@ -1,34 +1,25 @@
 <?php
+require_once 'ModeloBase.php';
 
-class Usuario{
-    protected $id;
-    protected $email;
-    protected $contrasena;
-    protected $nombre_usuario;
-    protected $fecha_nac;
-    protected $genero;
-    protected $pais;
-    protected $codigo_postal;
-    protected $imagen_perfil;
-
-    public function __construct($id,$email,$contrasena,$nombre_usuario,$fecha_nac,$genero,$pais,$codigo_postal,$imagen_perfil){
-        $this->id = $id;
-        $this->email = $email;
-        $this->contrasena = password_hash($contrasena, PASSWORD_BCRYPT);
-        $this->usuario = $usuario;
-        $this->fecha_nac = $fecha_nac;
-        $this->genero = $genero;
-        $this->pais = $pais;
-        $this->codigo_postal = $codigo_postal;
-        $this->imagen_perfil = $imagen_perfil;
+class Usuario extends ModeloBase {
+    public function registrar($email, $password, $usuario, $fecha_nac, $genero, $pais, $codigo_postal) {
+        $stmt = $this->conexion->prepare("INSERT INTO Usuario (email, contrasena, usuario, fecha_nac, genero, pais, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssss", $email, $password, $usuario, $fecha_nac, $genero, $pais, $codigo_postal);
+        return $stmt->execute();
     }
 
-    public function obtenerID() {
-        return $this->id;
+    public function obtenerPorEmail($email) {
+        $stmt = $this->conexion->prepare("SELECT * FROM Usuario WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
     }
 
-    
+    public function obtenerPorId($id_usuario) {
+        $stmt = $this->conexion->prepare("SELECT * FROM Usuario WHERE id_usuario = ?");
+        $stmt->bind_param("i", $id_usuario);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
+    }
 }
-
-
 ?>
