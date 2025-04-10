@@ -7,6 +7,8 @@ Proyecto usando unicamente PHP, HTML y CSS con el framework bootstrap
 
 TO-DO: 
 
+Crear las vistas para usuario Free y usuario Premium
+
 Mirar pdf a partir del 23 de abril
 
 Guía para poder ejecutar este codigo:
