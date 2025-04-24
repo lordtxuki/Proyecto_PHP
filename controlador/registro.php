@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $cvv = $_POST['cvv'];
         $paypal = $_POST['paypal'];
 
-        if (empty($tarjeta) && empty($paypal)) {
+        if (empty($tarjeta) && empty($paypal)) {    
             $error = "Por favor, ingresa los datos de tarjeta o PayPal para la cuenta Premium.";
         } elseif (!empty($tarjeta) && !preg_match('/^\d{16}$/', $tarjeta)) {
             $error = "El número de tarjeta debe tener 16 dígitos.";
@@ -94,7 +94,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         }
                     }
 
-                    // Redirección corregida
                     header("Location: /Recuperacion_Php/vista/vista_login.php?exito1");
                     exit();
                 } else {

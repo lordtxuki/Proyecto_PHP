@@ -68,7 +68,7 @@ $paypal = isset($_POST['paypal']) ? $_POST['paypal'] : '';
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label class="form-label">Tipo de cuenta</label>
-                            <select name="tipo_cuenta" class="form-select">
+                            <select name="tipo_cuenta" class="form-select" id="tipoCuenta">
                                 <option value="normal" <?php if ($tipo_cuenta == 'normal') echo 'selected'; ?>>Normal</option>
                                 <option value="premium" <?php if ($tipo_cuenta == 'premium') echo 'selected'; ?>>Premium</option>
                             </select>
@@ -78,11 +78,12 @@ $paypal = isset($_POST['paypal']) ? $_POST['paypal'] : '';
                             <strong>Nota:</strong> Si eliges una cuenta Premium, debes ingresar los datos de pago.
                         </div>
 
-                        <div class="border p-3 bg-light">
+                        <div id="datosPago" class="border p-3 bg-light" style="display: <?php echo ($tipo_cuenta == 'premium') ? 'block' : 'none'; ?>;">
                             <h5 class="text-center">Datos de Pago</h5>
                             <div class="mb-3">
                                 <label class="form-label">Tarjeta de Crédito</label>
                                 <input type="text" name="tarjeta" class="form-control" value="<?php echo $tarjeta; ?>" placeholder="Número de tarjeta" pattern="\d{16}" maxlength="16">
+                                <strong> La tarjeta solo la verificara como correcta con 16 números. </strong>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Vencimiento</label>
@@ -112,5 +113,22 @@ $paypal = isset($_POST['paypal']) ? $_POST['paypal'] : '';
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tipoCuenta = document.getElementById('tipoCuenta');
+            const datosPago = document.getElementById('datosPago');
+
+            function toggleDatosPago() {
+                if (tipoCuenta.value === 'premium') {
+                    datosPago.style.display = 'block';
+                } else {
+                    datosPago.style.display = 'none';
+                }
+            }
+
+            toggleDatosPago(); // Al cargar la página
+            tipoCuenta.addEventListener('change', toggleDatosPago); // Al cambiar selección
+        });
+    </script>
 </body>
 </html>

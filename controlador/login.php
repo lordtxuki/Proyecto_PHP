@@ -1,4 +1,10 @@
 <?php
+
+//El "isssss" en los bind param etc es por motivos de seguridad, para evitar inyecciones sql
+//a pesar de no ser necesario me parece una buena practica y me permite comprobar si tengo ese conocimiento
+// de ser necesario por errores u otros motivos, sera eliminado
+
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }

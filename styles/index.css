@@ -1,0 +1,138 @@
+/* General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-brand img {
+    border-radius: 5px;
+}
+
+/* Botones de navegación */
+.navbar .btn-outline-light,
+.navbar .btn-primary {
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar .btn-outline-light:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.navbar .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Encabezado principal */
+h1 {
+    font-size: 2.7rem;
+    color: #212529;
+    font-weight: 700;
+}
+
+p.text-center {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: auto;
+    color: #555;
+}
+
+/* Tarjetas de reseña */
+.card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-body {
+    padding: 1.5rem;
+    position: relative;
+}
+
+.card-title {
+    font-size: 1.3rem;
+    color: #ffc107;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+.card-body p:last-child {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: #888;
+    text-align: right;
+}
+
+/* Estrellas con emojis */
+.card-title::before {
+    content: "★★★★★";
+    font-size: 1.4rem;
+    color: #ffc107;
+    display: block;
+}
+
+/* Carrusel de artistas */
+#carouselArtistas .carousel-inner {
+    position: relative;
+    height: 600px;
+}
+
+#carouselArtistas .carousel-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .navbar .btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    #carouselArtistas .carousel-inner {
+        height: 450px;
+    }
+}
