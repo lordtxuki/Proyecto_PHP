@@ -30,7 +30,6 @@ $sql = "CREATE TABLE IF NOT EXISTS Usuario (
     codigo_postal VARCHAR(10),
     imagen_perfil VARCHAR(255) NOT NULL DEFAULT 'uploads/default.jpg'
 )";
-
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS usuario_premium (
@@ -38,7 +37,6 @@ $sql = "CREATE TABLE IF NOT EXISTS usuario_premium (
     id_usuario INT UNIQUE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE
 )";
-
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS Suscripciones (
@@ -49,7 +47,6 @@ $sql = "CREATE TABLE IF NOT EXISTS Suscripciones (
     estado ENUM('activa', 'cancelada') NOT NULL,
     FOREIGN KEY (id_usuario_premium) REFERENCES usuario_premium(id_usuario_premium) ON DELETE CASCADE
 )";
-
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS Pagos (
@@ -64,7 +61,6 @@ $sql = "CREATE TABLE IF NOT EXISTS Pagos (
     usuario_paypal VARCHAR(100),
     FOREIGN KEY (id_suscripcion) REFERENCES Suscripciones(id_suscripcion) ON DELETE CASCADE
 )";
-
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS Artistas (
@@ -72,7 +68,6 @@ $sql = "CREATE TABLE IF NOT EXISTS Artistas (
     nombre VARCHAR(100) NOT NULL,
     imagen VARCHAR(255) NOT NULL DEFAULT 'uploads/default_artist.jpg'
 )";
-
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS Albumes (
@@ -83,7 +78,6 @@ $sql = "CREATE TABLE IF NOT EXISTS Albumes (
     imagen_portada VARCHAR(255) NOT NULL DEFAULT 'uploads/default_album.jpg',
     FOREIGN KEY (id_artista) REFERENCES Artistas(id_artista) ON DELETE CASCADE
 )";
-
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS Canciones (
@@ -92,9 +86,9 @@ $sql = "CREATE TABLE IF NOT EXISTS Canciones (
     titulo VARCHAR(100) NOT NULL,
     duracion TIME NOT NULL,
     veces_reproducida INT DEFAULT 0,
+    ruta VARCHAR(255) NOT NULL,
     FOREIGN KEY (id_album) REFERENCES Albumes(id_album) ON DELETE CASCADE
 )";
-
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS Playlist (
@@ -107,7 +101,6 @@ $sql = "CREATE TABLE IF NOT EXISTS Playlist (
     fecha_eliminacion DATETIME NULL,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE
 )";
-
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS canciones_favoritas (
@@ -118,7 +111,6 @@ $sql = "CREATE TABLE IF NOT EXISTS canciones_favoritas (
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE,
     FOREIGN KEY (id_cancion) REFERENCES Canciones(id_cancion) ON DELETE CASCADE
 )";
-
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS albumes_favoritos (
@@ -129,7 +121,6 @@ $sql = "CREATE TABLE IF NOT EXISTS albumes_favoritos (
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE,
     FOREIGN KEY (id_album) REFERENCES Albumes(id_album) ON DELETE CASCADE
 )";
-
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS usuario_canciones (
@@ -140,7 +131,27 @@ $sql = "CREATE TABLE IF NOT EXISTS usuario_canciones (
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE,
     FOREIGN KEY (id_cancion) REFERENCES Canciones(id_cancion) ON DELETE CASCADE
 )";
+$conn->query($sql);
 
+$sql = "CREATE TABLE IF NOT EXISTS playlist_compartida (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_playlist INT,
+    id_usuario_destino INT,
+    FOREIGN KEY (id_playlist) REFERENCES Playlist(id_playlist) ON DELETE CASCADE,
+    FOREIGN KEY (id_usuario_destino) REFERENCES Usuario(id_usuario) ON DELETE CASCADE
+)";
+$conn->query($sql);
+
+$sql = "CREATE TABLE IF NOT EXISTS playlist_canciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_playlist INT,
+    id_cancion INT,
+    id_usuario_que_agrega INT,
+    fecha_agregado DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_playlist) REFERENCES Playlist(id_playlist) ON DELETE CASCADE,
+    FOREIGN KEY (id_cancion) REFERENCES Canciones(id_cancion) ON DELETE CASCADE,
+    FOREIGN KEY (id_usuario_que_agrega) REFERENCES Usuario(id_usuario) ON DELETE CASCADE
+)";
 $conn->query($sql);
 
 echo "Tablas creadas correctamente.";
