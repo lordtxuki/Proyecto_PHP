@@ -10,6 +10,8 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 $id_usuario = $_SESSION['usuario_id'];
+
+// Verificar si es Premium
 $stmt = $conexion->prepare("SELECT id_usuario FROM usuario_premium WHERE id_usuario = ?");
 $stmt->bind_param("i", $id_usuario);
 $stmt->execute();
@@ -18,6 +20,30 @@ $res = $stmt->get_result();
 if ($res->num_rows === 0) {
     header("Location: normal.php");
     exit();
+}
+
+// Obtener nombre y género
+$stmt = $conexion->prepare("SELECT usuario, genero FROM usuario WHERE id_usuario = ?");
+$stmt->bind_param("i", $id_usuario);
+$stmt->execute();
+$res = $stmt->get_result();
+
+if ($res->num_rows > 0) {
+    $usuario = $res->fetch_assoc();
+    $nombre_usuario = $usuario['usuario'];
+    $genero = $usuario['genero'];
+} else {
+    $nombre_usuario = "Usuario";
+    $genero = "otro";
+}
+
+// Definir saludo según el género
+if ($genero === "masculino") {
+    $saludo = "Bienvenido";
+} elseif ($genero === "femenino") {
+    $saludo = "Bienvenida";
+} else {
+    $saludo = "Bienvenido/a";
 }
 
 $seccion = $_GET['seccion'] ?? 'inicio';
@@ -31,13 +57,20 @@ $seccion = $_GET['seccion'] ?? 'inicio';
     <link rel="stylesheet" href="../styles/premium.css">
 </head>
 <body>
-    <h1>¡Nos alegra volver a verte!</h1>
+    <header>
+        <div class="contenedor">
+            <h1><?php echo "$saludo, " . htmlspecialchars($nombre_usuario); ?> a tu cuenta Premium</h1>
+        </div>
+    </header>
+
     <nav>
-        <a href="?seccion=playlists">Mis Playlists</a> |
-        <a href="?seccion=favoritos">Favoritos</a> |
-        <a href="?seccion=reproductor">Reproductor</a> |
-        <a href="?seccion=subir">Subir Canción/Álbum</a> |
-        <a href="logout.php">Cerrar sesión</a>
+        <div class="contenedor">
+            <a href="?seccion=playlists">Mis Playlists</a> |
+            <a href="?seccion=favoritos">Favoritos</a> |
+            <a href="?seccion=reproductor">Reproductor</a> |
+            <a href="?seccion=subir">Subir Canción/Álbum</a> |
+            <a href="logout.php">Cerrar sesión</a>
+        </div>
     </nav>
 
     <main>
@@ -61,4 +94,5 @@ $seccion = $_GET['seccion'] ?? 'inicio';
         ?>
     </main>
 </body>
+
 </html>

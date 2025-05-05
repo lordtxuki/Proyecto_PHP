@@ -2,6 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
 require_once '../controlador/conexion.php';
 
 if (!isset($_SESSION['usuario_id'])) {
@@ -10,6 +11,30 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 
 $id_usuario = $_SESSION['usuario_id'];
+
+// Obtener el nombre y género del usuario
+$stmt = $conexion->prepare("SELECT usuario, genero FROM usuario WHERE id_usuario = ?");
+$stmt->bind_param("i", $id_usuario);
+$stmt->execute();
+$res = $stmt->get_result();
+
+if ($res->num_rows > 0) {
+    $usuario = $res->fetch_assoc();
+    $nombre_usuario = $usuario['usuario'];
+    $genero = $usuario['genero'];
+} else {
+    $nombre_usuario = "Usuario desconocido";
+    $genero = "otro"; 
+}
+
+// Definir el saludo
+if ($genero === "masculino") {
+    $saludo = "Bienvenido";
+} elseif ($genero === "femenino") {
+    $saludo = "Bienvenida";
+} else {
+    $saludo = "Bienvenido/a";
+}
 $stmt = $conexion->prepare("SELECT id_usuario FROM usuario_premium WHERE id_usuario = ?");
 $stmt->bind_param("i", $id_usuario);
 $stmt->execute();
@@ -31,7 +56,7 @@ $seccion = $_GET['seccion'] ?? 'inicio';
     <link rel="stylesheet" href="../styles/normal.css">
 </head>
 <body>
-    <h1>Bienvenido a tu cuenta Free</h1>
+    <h1><?php echo $saludo . ", " . htmlspecialchars($nombre_usuario); ?>, a tu cuenta Free</h1>
     <nav>
         <a href="?seccion=playlists">Mis Playlists</a> |
         <a href="?seccion=favoritos">Favoritos</a> |

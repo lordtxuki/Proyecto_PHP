@@ -6,22 +6,33 @@ body {
     text-align: center;
 }
 
-h1 {
+header {
     background-color: #38a169;
     color: white;
-    padding: 20px;
+    padding: 20px 0;
+}
+
+header h1 {
     margin: 0;
+    font-size: 2em;
+    color: white;
 }
 
 nav {
     background-color: #2f855a;
-    padding: 10px;
+    padding: 10px 0;
+}
+
+nav .contenedor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
     font-weight: bold;
 }
 
@@ -36,4 +47,10 @@ main {
     margin: 30px auto;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 10px;
+}
+
+.contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
