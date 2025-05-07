@@ -21,7 +21,7 @@ $cancionesDisponibles = CancionModelo::obtenerTodas();
 <head>
     <meta charset="UTF-8">
     <title>Playlists</title>
-    <link rel="stylesheet" href="../estilos/playlists.css">
+    <link rel="stylesheet" href="../styles/playlist.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
