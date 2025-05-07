@@ -22,6 +22,8 @@ Instalar XAMPP
 
 Iniciar MYSQL y Apache
 
+Insertar en la carpeta htdocs la carpeta del proyecto
+
 Dirigirse a localhost y ejecutar database/instalar.php
 
 Retroceder y acceder a la carpeta localhost/Recuperacion_PHP
