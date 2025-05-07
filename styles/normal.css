@@ -1,27 +1,39 @@
 body {
-    background-color: #f0f0f0;
+    background-color: #e7fce7;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-h1 {
-    background-color: #667eea;
+header {
+    background-color:#4c51bf;
     color: white;
-    padding: 20px;
+    padding: 20px 0;
+}
+
+header h1 {
     margin: 0;
+    font-size: 2em;
+    color: white;
+    font-weight: bold;
 }
 
 nav {
-    background-color: #4c51bf;
-    padding: 10px;
+    background-color:#4c51bf;
+    padding: 10px 0;
+}
+
+nav .contenedor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px;
     font-weight: bold;
 }
 
@@ -36,4 +48,11 @@ main {
     margin: 30px auto;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 10px;
+}
+
+.contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+    font-weight: bold;
 }

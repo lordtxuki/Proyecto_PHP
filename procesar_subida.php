@@ -51,3 +51,6 @@ try {
     $conexion->rollback();
     echo "Error al subir la canción: " . $e->getMessage();
 }
+
+header("Location: vista/premium.php");
+

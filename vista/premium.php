@@ -59,7 +59,7 @@ $seccion = $_GET['seccion'] ?? 'inicio';
 <body>
     <header>
         <div class="contenedor">
-            <h1><?php echo "$saludo, " . htmlspecialchars($nombre_usuario); ?> a tu cuenta Premium</h1>
+            <h1><?php echo "$saludo, " . htmlspecialchars($nombre_usuario); ?>, a tu cuenta Premium</h1>
         </div>
     </header>
 
@@ -69,7 +69,7 @@ $seccion = $_GET['seccion'] ?? 'inicio';
             <a href="?seccion=favoritos">Favoritos</a> |
             <a href="?seccion=reproductor">Reproductor</a> |
             <a href="?seccion=subir">Subir Canción/Álbum</a> |
-            <a href="logout.php">Cerrar sesión</a>
+            <a href="../logout.php">Cerrar sesión</a>
         </div>
     </nav>
 

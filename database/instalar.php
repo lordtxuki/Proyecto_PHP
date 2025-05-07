@@ -75,7 +75,7 @@ $sql = "CREATE TABLE IF NOT EXISTS Albumes (
     id_artista INT,
     titulo VARCHAR(100) NOT NULL,
     año_publicacion YEAR NOT NULL,
-    imagen_portada VARCHAR(255) NOT NULL DEFAULT 'uploads/default_album.jpg',
+    imagen_portada VARCHAR(255) NULL DEFAULT 'uploads/default_album.jpg',
     FOREIGN KEY (id_artista) REFERENCES Artistas(id_artista) ON DELETE CASCADE
 )";
 $conn->query($sql);

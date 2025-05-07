@@ -25,4 +25,4 @@ $favoritos = FavoritoModelo::obtener($_SESSION['usuario_id']);
     <li><?php echo $a['titulo']; ?> <a href="../controlador/favoritoControlador.php?accion=quitar&tipo=album&id=<?php echo $a['id_album']; ?>">Quitar</a></li>
 <?php endforeach; ?>
 </ul>
-<a href="normal.php">Volver</a> | <a href="premium.php">Volver Premium</a>
+<a href="normal.php">Volver</a>

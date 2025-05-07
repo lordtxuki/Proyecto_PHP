@@ -56,13 +56,20 @@ $seccion = $_GET['seccion'] ?? 'inicio';
     <link rel="stylesheet" href="../styles/normal.css">
 </head>
 <body>
-    <h1><?php echo $saludo . ", " . htmlspecialchars($nombre_usuario); ?>, a tu cuenta Free</h1>
+    <header>
+        <div class="contenedor">
+            <h1><?php echo $saludo . ", " . htmlspecialchars($nombre_usuario); ?>, a tu cuenta Free</h1>
+        </div>
+    </header>
+
     <nav>
-        <a href="?seccion=playlists">Mis Playlists</a> |
-        <a href="?seccion=favoritos">Favoritos</a> |
-        <a href="?seccion=reproductor">Reproductor</a> |
-        <a href="logout.php">Cerrar sesión</a> |
-        <a href="upgrade.php">Actualizar a Premium</a>
+        <div class="contenedor">
+            <a href="?seccion=playlists">Mis Playlists</a> |
+            <a href="?seccion=favoritos">Favoritos</a> |
+            <a href="?seccion=reproductor">Reproductor</a> |
+            <a href="../logout.php">Cerrar sesión</a> |
+            <a href="upgrade.php">Actualizar a Premium</a>
+        </div>
     </nav>
 
     <main>

@@ -31,9 +31,9 @@ class PlaylistModelo {
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    public static function borrarPlaylist($id_playlist){
+    public static function borrar($id_playlist){
         global $conexion;
-        $stmt = $conexion->prepare("DELETE * FROM Playlist WHERE id_playlist =?");
+        $stmt = $conexion->prepare("DELETE FROM Playlist WHERE id_playlist =?");
         $stmt->bind_param("i",$id_playlist);
         $stmt->execute();
     }

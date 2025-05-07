@@ -16,6 +16,7 @@ header h1 {
     margin: 0;
     font-size: 2em;
     color: white;
+    font-weight: bold;
 }
 
 nav {
@@ -53,4 +54,5 @@ main {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 15px;
+    font-weight: bold;
 }

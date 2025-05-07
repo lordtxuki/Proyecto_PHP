@@ -45,6 +45,7 @@ $cancionesDisponibles = CancionModelo::obtenerTodas();
                         <a href="../controlador/playlistControlador.php?accion=eliminar&id_playlist=<?php echo $pl['id_playlist']; ?>" class="btn btn-sm btn-danger">Eliminar</a>
                     <?php else: ?>
                         <a href="../controlador/playlistControlador.php?accion=recuperar&id_playlist=<?php echo $pl['id_playlist']; ?>" class="btn btn-sm btn-success">Recuperar</a>
+                        <a href="../controlador/playlistControlador.php?accion=borrar&id_playlist=<?php echo $pl['id_playlist']; ?>" class="btn btn-sm btn-success">Borrar</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -89,7 +90,6 @@ $cancionesDisponibles = CancionModelo::obtenerTodas();
 
     <div class="text-center mt-4">
         <a href="normal.php" class="btn btn-outline-secondary me-2">Volver</a>
-        <a href="premium.php" class="btn btn-outline-secondary">Volver Premium</a>
     </div>
 </div>
 
