@@ -20,6 +20,8 @@ switch ($accion) {
     case 'recuperar':
         PlaylistModelo::recuperar($_GET['id_playlist']);
         break;
+    case 'borrar':
+        PlaylistModelo::borrarPlaylist
 }
 
 header('Location: ../vista/playlists.php');
