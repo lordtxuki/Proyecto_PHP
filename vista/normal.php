@@ -65,8 +65,12 @@ $seccion = $_GET['seccion'] ?? 'inicio';
     <nav>
         <div class="contenedor">
             <a href="?seccion=playlists">Mis Playlists</a> |
+            <a href="?seccion=albumes">Álbumes</a> |
+            <a href="?seccion=artistas">Artistas</a> |
+            <a href="?seccion=recomendaciones">Recomendaciones</a> |
             <a href="?seccion=favoritos">Favoritos</a> |
             <a href="?seccion=reproductor">Reproductor</a> |
+            <a href="?seccion=subir">Subir Canción/Álbum</a> |
             <a href="../logout.php">Cerrar sesión</a> |
             <a href="upgrade.php">Actualizar a Premium</a>
         </div>
@@ -83,6 +87,15 @@ $seccion = $_GET['seccion'] ?? 'inicio';
                 break;
             case 'reproductor':
                 include 'reproductor.php';
+                break;
+            case 'albumes':
+                include 'albumes.php';
+                break;
+            case 'artistas':
+                include 'artistas.php';
+                break;
+            case 'recomendaciones':
+                include 'recomendaciones.php';
                 break;
             default:
                 echo "<p>Usa el menú para acceder a tus secciones.</p>";
