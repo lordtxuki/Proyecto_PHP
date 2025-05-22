@@ -1,0 +1,79 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.favorito-card {
+    background: #f7f7f7;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 8px;
+    font-family: Arial, sans-serif;
+    color: #444;
+}
+
+a.btn-small {
+    margin-left: 15px;
+    font-size: 0.9em;
+    text-decoration: none;
+    color: #b22222;
+    border: 1px solid #b22222;
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+a.btn-small:hover {
+    background-color: #b22222;
+    color: white;
+}
+
+.volver-btn {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 25px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+}
+
+.volver-btn:hover {
+    background-color: #555;
+}
+
+.artista-favorito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.miniatura-artista {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #c0a060;
+}

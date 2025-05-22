@@ -1,5 +1,5 @@
 body {
-    background-color: #f0f0f0;
+    background-color: #fde8e8;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color:#4c51bf;
+    background-color: #e53e3e; 
     color: white;
     padding: 20px 0;
 }
@@ -20,7 +20,7 @@ header h1 {
 }
 
 nav {
-    background-color:#4c51bf;
+    background-color: #c53030;
     padding: 10px 0;
 }
 

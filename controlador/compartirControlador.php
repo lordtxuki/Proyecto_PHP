@@ -1,7 +1,8 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
-}require_once '../modelo/compartirModelo.php';
+}
+require_once '../modelo/compartirModelo.php';
 
 if (!isset($_SESSION['usuario_id'])) {
     header('Location: ../vista/vista_login.php');

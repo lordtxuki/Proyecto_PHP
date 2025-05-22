@@ -21,7 +21,7 @@ switch ($accion) {
         PlaylistModelo::recuperar($_GET['id_playlist']);
         break;
     case 'borrar':
-        PlaylistModelo::borrarPlaylist
+        PlaylistModelo::borrar($_GET['id_playlist']);
 }
 
 header('Location: ../vista/playlists.php');

@@ -21,7 +21,7 @@ $cancionesDisponibles = CancionModelo::obtenerTodas();
 <head>
     <meta charset="UTF-8">
     <title>Playlists</title>
-    <link rel="stylesheet" href="../estilos/playlists.css">
+    <link rel="stylesheet" href="../styles/playlist.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -45,6 +45,7 @@ $cancionesDisponibles = CancionModelo::obtenerTodas();
                         <a href="../controlador/playlistControlador.php?accion=eliminar&id_playlist=<?php echo $pl['id_playlist']; ?>" class="btn btn-sm btn-danger">Eliminar</a>
                     <?php else: ?>
                         <a href="../controlador/playlistControlador.php?accion=recuperar&id_playlist=<?php echo $pl['id_playlist']; ?>" class="btn btn-sm btn-success">Recuperar</a>
+                        <a href="../controlador/playlistControlador.php?accion=borrar&id_playlist=<?php echo $pl['id_playlist']; ?>" class="btn btn-sm btn-success">Borrar</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -88,8 +89,7 @@ $cancionesDisponibles = CancionModelo::obtenerTodas();
     <?php endforeach; ?>
 
     <div class="text-center mt-4">
-        <a href="normal.php" class="btn btn-outline-secondary me-2">Volver</a>
-        <a href="premium.php" class="btn btn-outline-secondary">Volver Premium</a>
+        <button class="volver-btn" onclick="history.back()">Volver atrás</button>
     </div>
 </div>
 
