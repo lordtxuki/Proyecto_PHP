@@ -55,4 +55,4 @@ if (!isset($_SESSION['usuario_id'])) {
     <?php endif; ?>
 <?php endif; ?>
 
-<a href="normal.php">Volver</a>
+    <button class="volver-btn" onclick="history.back()">Volver atrás</button>

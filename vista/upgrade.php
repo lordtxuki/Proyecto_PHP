@@ -55,7 +55,7 @@ if ($res->num_rows > 0) {
                     <input type="email" name="paypal" class="form-control" placeholder="Correo de PayPal">
                 </div>
                 <button type="submit" class="btn btn-success w-100">Actualizar a Premium</button>
-                <a href="normal.php" class="btn btn-outline-secondary w-100 mt-2">Volver</a>
+                <button class="volver-btn" onclick="history.back()">Volver atrás</button>
             </form>
         </div>
     </div>

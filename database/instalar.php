@@ -154,7 +154,46 @@ $sql = "CREATE TABLE IF NOT EXISTS playlist_canciones (
 )";
 $conn->query($sql);
 
-echo "Tablas creadas correctamente.";
+
+$sql = "CREATE TABLE IF NOT EXISTS artistas_seguidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_artista INT NOT NULL,
+    UNIQUE(id_usuario, id_artista),
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (id_artista) REFERENCES Artistas(id_artista) ON DELETE CASCADE
+)";
+$conn->query($sql);
+
+$sql = "CREATE TABLE IF NOT EXISTS artistas_favoritos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_artista INT NOT NULL,
+    UNIQUE(id_usuario, id_artista),
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (id_artista) REFERENCES Artistas(id_artista) ON DELETE CASCADE
+)";
+$conn->query($sql);
+
+$sql = "CREATE TABLE IF NOT EXISTS playlists_favoritas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    id_playlist INT NOT NULL,
+    UNIQUE(id_usuario, id_playlist),
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (id_playlist) REFERENCES Playlist(id_playlist) ON DELETE CASCADE
+)";
+$conn->query($sql);
+
+$sql= "CREATE TABLE IF NOT EXISTS usuario_admin (
+    id_usuario INT PRIMARY KEY,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE
+)";
+
+$conn->query($sql);
 
 $conn->close();
+
+echo "Tablas creadas correctamente.";
+
 ?>

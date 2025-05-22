@@ -1,0 +1,125 @@
+/* Fondo de toda la página con un degradado suave */
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 2rem 0;
+    color: #333;
+}
+
+/* Contenedor principal centrado, fondo blanco y sombra */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Tarjeta de artista con fondo suave y sombra */
+.artist-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.artist-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* Imagen de artista */
+.artist-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+    border: 2px solid #764ba2;
+}
+
+/* Placeholder de imagen */
+.img-placeholder {
+    width: 100%;
+    height: 150px;
+    background-color: #ddd;
+    color: #666;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+}
+
+/* Título centrado */
+h2.text-center {
+    text-align: center;
+    color: #fff;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Acciones: botones agrupados */
+.acciones {
+    margin-top: 10px;
+}
+
+/* Botones pequeños con colores */
+.btn-small {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 4px 3px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.3s ease;
+}
+
+.verde { background-color: #4CAF50; }
+.verde:hover { background-color: #43a047; }
+
+.rojo { background-color: #f44336; }
+.rojo:hover { background-color: #e53935; }
+
+.azul { background-color: #2196F3; }
+.azul:hover { background-color: #1e88e5; }
+
+.amarillo { background-color: #fbc02d; color: #333; }
+.amarillo:hover { background-color: #f9a825; color: #222; }
+
+/* Fondo verde clarito para el área de artistas */
+.container {
+    background-color: #d9f0d9;
+}
+
+/* Botón Volver centrado y separado debajo de los artistas */
+#btnVolver {
+    display: block;
+    margin: 2rem auto 0 auto;
+    padding: 10px 25px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+#btnVolver:hover {
+    background-color: #43a047;
+}

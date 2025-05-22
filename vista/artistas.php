@@ -5,7 +5,6 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once '../modelo/artistaModelo.php';
 require_once '../modelo/favoritoModelo.php';
 
-$id_usuario = $_SESSION['usuario_id'];
 $artistas = ArtistaModelo::obtenerTodos();
 ?>
 <!DOCTYPE html>
@@ -13,27 +12,52 @@ $artistas = ArtistaModelo::obtenerTodos();
 <head>
     <meta charset="UTF-8">
     <title>Artistas</title>
-    <link rel="stylesheet" href="../styles/secciones.css">
+    <link rel="stylesheet" href="../styles/albumes.css">
+    <link rel="stylesheet" href="../styles/artistas.css">
 </head>
 <body>
 <h2 class="text-center">Artistas</h2>
 <div class="container">
 <?php foreach ($artistas as $artista): ?>
-    <div class="artista-card">
-        <div class="card-header">
-            <img src="../<?php echo $artista['imagen']; ?>" alt="Artista">
-            <strong><?php echo $artista['nombre']; ?></strong>
+    <?php
+    $ruta = $artista['imagen'];
+    $existe = $ruta && file_exists('../' . $ruta);
+    $id_artista = $artista['id_artista'];
+    $seguido = ArtistaModelo::esSeguido($_SESSION['usuario_id'], $id_artista);
+    $favorito = FavoritoModelo::esFavorito($_SESSION['usuario_id'], $id_artista, 'artista');
+    ?>
+    <div class="artist-card">
+        <?php if ($existe): ?>
+            <img src="../<?php echo htmlspecialchars($ruta); ?>" alt="Artista <?php echo htmlspecialchars($artista['nombre']); ?>">
+        <?php else: ?>
+            <div class="img-placeholder">Imagen</div>
+        <?php endif; ?>
+        <div>
+            <strong><?php echo htmlspecialchars($artista['nombre']); ?></strong>
         </div>
-        <div class="card-body">
-            <?php if (ArtistaModelo::esSeguido($id_usuario, $artista['id_artista'])): ?>
-                <a href="../controlador/artistaControlador.php?accion=dejar&id=<?php echo $artista['id_artista']; ?>" class="btn-small">Dejar de seguir</a>
+        <div class="acciones">
+            <?php if ($seguido): ?>
+                <a href="../controlador/artistaControlador.php?accion=dejar&id=<?php echo $id_artista; ?>" class="btn-small rojo">Dejar de seguir</a>
             <?php else: ?>
-                <a href="../controlador/artistaControlador.php?accion=seguir&id=<?php echo $artista['id_artista']; ?>" class="btn-small">Seguir</a>
+                <a href="../controlador/artistaControlador.php?accion=seguir&id=<?php echo $id_artista; ?>" class="btn-small verde">Seguir</a>
             <?php endif; ?>
-            <a href="../controlador/artistaControlador.php?accion=favorito&id=<?php echo $artista['id_artista']; ?>" class="btn-small">❤️ Favorito</a>
+
+            <?php if ($favorito): ?>
+                <a href="../controlador/artistaControlador.php?accion=quitar_favorito&id=<?php echo $id_artista; ?>" class="btn-small amarillo">Quitar favorito</a>
+            <?php else: ?>
+                <a href="../controlador/artistaControlador.php?accion=favorito&id=<?php echo $id_artista; ?>" class="btn-small azul">Agregar favorito</a>
+            <?php endif; ?>
         </div>
     </div>
 <?php endforeach; ?>
 </div>
+
+<button id="btnVolver">Volver</button>
+
+<script>
+    document.getElementById('btnVolver').addEventListener('click', function() {
+        history.back();
+    });
+</script>
 </body>
 </html>
