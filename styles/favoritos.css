@@ -1,79 +1,134 @@
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.text-center {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 30px;
+/* Fondo de toda la página con un degradado suave */
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 2rem 0;
     color: #333;
 }
 
-.favorito-card {
-    background: #f7f7f7;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+/* Contenedor principal centrado, fondo blanco y sombra */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    padding: 2rem 2.5rem;
 }
 
+/* Título centrado con sombra */
+.text-center {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #3366cc;
+    text-shadow: 1px 1px 4px rgba(102, 102, 204, 0.3);
+}
+
+/* Tarjeta de favorito con fondo claro y sombra */
+.favorito-card {
+    background: #f9f9f9;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    border: 1px solid #b3c7ff;
+}
+
+/* Lista sin estilo ni margen */
 ul {
     list-style-type: none;
     padding-left: 0;
+    margin: 0;
 }
 
+/* Items de la lista */
 li {
-    margin-bottom: 8px;
-    font-family: Arial, sans-serif;
-    color: #444;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    color: #444d66;
+    display: flex;
+    align-items: center;
 }
 
+/* Botones pequeños estilo azul */
 a.btn-small {
     margin-left: 15px;
     font-size: 0.9em;
     text-decoration: none;
-    color: #b22222;
-    border: 1px solid #b22222;
-    padding: 2px 8px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    color: #3366cc;
+    border: 1.5px solid #3366cc;
+    padding: 5px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 600;
+    user-select: none;
 }
 
 a.btn-small:hover {
-    background-color: #b22222;
+    background-color: #3366cc;
     color: white;
 }
 
+/* Botón Volver centrado y con estilo */
 .volver-btn {
     display: block;
-    margin: 30px auto;
-    padding: 10px 25px;
-    background-color: #333;
+    margin: 35px auto 0 auto;
+    padding: 12px 30px;
+    background-color: #3366cc;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 12px;
     cursor: pointer;
-    font-family: Arial, sans-serif;
-    font-size: 1em;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
 }
 
 .volver-btn:hover {
-    background-color: #555;
+    background-color: #274b8f;
 }
 
+/* Contenedor para artista favorito */
 .artista-favorito {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
+    gap: 15px;
 }
 
+/* Imagen miniatura con borde y sombra suave */
 .miniatura-artista {
     width: 50px;
     height: 50px;
     object-fit: cover;
     border-radius: 50%;
-    border: 1px solid #c0a060;
+    border: 2px solid #6699ff;
+    box-shadow: 0 0 8px #99bbff88;
+    flex-shrink: 0;
+}
+
+/* Placeholder para imagen cuando no hay miniatura */
+.img-placeholder {
+    width: 50px;
+    height: 50px;
+    background: #aac7ff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e6eaf2;
+    font-size: 0.85rem;
+    font-style: italic;
+    user-select: none;
+    flex-shrink: 0;
+}
+
+h2.text-center {
+    text-align: center;
+    color: #fff; /* letra blanca para que contraste */
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* sombra para mejorar legibilidad */
+    font-weight: bold;
 }

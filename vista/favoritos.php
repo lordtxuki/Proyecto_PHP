@@ -55,23 +55,31 @@ $favoritos = FavoritoModelo::obtener($_SESSION['usuario_id']);
         </div>
 
         <div class="favorito-card">
-            <h4>Artistas</h4>
-            <ul>
-                <?php if (count($favoritos['artistas']) === 0): ?>
-                    <li>No tienes artistas favoritos.</li>
-                <?php else: ?>
-                    <?php foreach ($favoritos['artistas'] as $art): ?>
-                        <li class="artista-favorito">
-                            <img src="/Recuperacion_Php/imagenes/artistas/<?php echo rawurlencode($art['imagen']); ?>" alt="<?php echo htmlspecialchars($art['nombre']); ?>" class="miniatura-artista">
-                            <?php echo htmlspecialchars($art['nombre']); ?>
-                            <a class="btn-small" href="../controlador/favoritoControlador.php?accion=quitar&tipo=artista&id=<?php echo $art['id_artista']; ?>">Quitar</a>
-                        </li>
+            <div class="favorito-card">
+    <h4>Artistas</h4>
+    <ul>
+        <?php if (count($favoritos['artistas']) === 0): ?>
+            <li>No tienes artistas favoritos.</li>
+        <?php else: ?>
+            <?php foreach ($favoritos['artistas'] as $art): ?>
+                <?php
+                $ruta = $art['imagen'];
+                $existe = $ruta && file_exists('../' . $ruta);
+                ?>
+                <li class="artista-favorito">
+                    <?php if ($existe): ?>
+                        <img src="../<?php echo htmlspecialchars($ruta); ?>" alt="<?php echo htmlspecialchars($art['nombre']); ?>" class="miniatura-artista">
+                    <?php else: ?>
+                        <div class="img-placeholder">Imagen no disponible</div>
+                    <?php endif; ?>
+                    <?php echo htmlspecialchars($art['nombre']); ?>
+                    <a class="btn-small" href="../controlador/favoritoControlador.php?accion=quitar&tipo=artista&id=<?php echo $art['id_artista']; ?>">Quitar</a>
+                </li>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </ul>
+</div>
 
-                        </li>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </ul>
-        </div>
 
         <button class="volver-btn" onclick="history.back()">Volver atrás</button>
     </div>

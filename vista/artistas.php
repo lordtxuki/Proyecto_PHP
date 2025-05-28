@@ -52,7 +52,7 @@ $artistas = ArtistaModelo::obtenerTodos();
 <?php endforeach; ?>
 </div>
 
-<button id="btnVolver">Volver</button>
+<button id="btnVolver" class="btn-small azul">Volver</button>
 
 <script>
     document.getElementById('btnVolver').addEventListener('click', function() {

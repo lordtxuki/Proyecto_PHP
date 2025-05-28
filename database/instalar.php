@@ -185,13 +185,6 @@ $sql = "CREATE TABLE IF NOT EXISTS playlists_favoritas (
 )";
 $conn->query($sql);
 
-$sql= "CREATE TABLE IF NOT EXISTS usuario_admin (
-    id_usuario INT PRIMARY KEY,
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE
-)";
-
-$conn->query($sql);
-
 $conn->close();
 
 echo "Tablas creadas correctamente.";

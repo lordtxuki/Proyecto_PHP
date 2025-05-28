@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['contrasena'];
 
-    $stmt = $conexion->prepare("SELECT id_usuario, contrasena, rol FROM Usuario WHERE email = ?");
+    $stmt = $conexion->prepare("SELECT id_usuario, contrasena FROM Usuario WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -18,13 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $usuario = $resultado->fetch_assoc();
         if (password_verify($password, $usuario['contrasena'])) {
             $_SESSION['usuario_id'] = $usuario['id_usuario'];
-            $_SESSION['rol'] = $usuario['rol'];
 
-            if ($usuario['rol'] === 'admin') {
-                header("Location: ../vista/admin.php");
-            } elseif ($usuario['rol'] === 'premium') {
+            // Comprobar si es premium
+            $stmt_premium = $conexion->prepare("SELECT id_usuario_premium FROM usuario_premium WHERE id_usuario = ?");
+            $stmt_premium->bind_param("i", $usuario['id_usuario']);
+            $stmt_premium->execute();
+            $resultado_premium = $stmt_premium->get_result();
+
+            if ($resultado_premium->num_rows > 0) {
+                $_SESSION['tipo_cuenta'] = 'premium';
                 header("Location: ../vista/premium.php");
             } else {
+                $_SESSION['tipo_cuenta'] = 'normal';
                 header("Location: ../vista/normal.php");
             }
             exit();
