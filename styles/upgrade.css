@@ -1,0 +1,89 @@
+/* styles/upgrade.css */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: #ffffff;
+    max-width: 480px;
+    width: 90%;
+    padding: 30px 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #34495e;
+}
+
+input[type="text"],
+input[type="month"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 1.8px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="month"]:focus,
+input[type="email"]:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+.btn-secondary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px 0;
+    background-color: #6c757d;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}

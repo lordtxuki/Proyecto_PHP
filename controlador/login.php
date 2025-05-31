@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['contrasena'];
 
-    $stmt = $conexion->prepare("SELECT id_usuario, contrasena, rol FROM Usuario WHERE email = ?");
+    $stmt = $conexion->prepare("SELECT id_usuario, contrasena FROM Usuario WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -18,15 +18,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $usuario = $resultado->fetch_assoc();
         if (password_verify($password, $usuario['contrasena'])) {
             $_SESSION['usuario_id'] = $usuario['id_usuario'];
-            $_SESSION['rol'] = $usuario['rol'];
 
-            if ($usuario['rol'] === 'admin') {
-                header("Location: ../vista/admin.php");
-            } elseif ($usuario['rol'] === 'premium') {
+            // Comprobar si es premium consultando la tabla usuario_premium
+            $stmt2 = $conexion->prepare("SELECT id_usuario FROM usuario_premium WHERE id_usuario = ?");
+            $stmt2->bind_param("i", $usuario['id_usuario']);
+            $stmt2->execute();
+            $resPremium = $stmt2->get_result();
+
+            if ($resPremium->num_rows > 0) {
                 header("Location: ../vista/premium.php");
             } else {
                 header("Location: ../vista/normal.php");
             }
+            $stmt2->close();
             exit();
         } else {
             $_SESSION['login_error'] = "Contraseña incorrecta";

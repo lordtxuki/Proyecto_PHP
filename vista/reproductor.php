@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 require_once '../modelo/cancionModelo.php';
+require_once '../modelo/artistaModelo.php';
 
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: vista_login.php");
@@ -18,7 +19,7 @@ if (!isset($_SESSION['usuario_id'])) {
     $cancion = CancionModelo::obtener($_GET['id']);
     if ($cancion):
         $rutaCancion = "../canciones/" . basename($cancion['ruta']);
-        if (file_exists($rutaCancion)): 
+        if (file_exists($rutaCancion)):
     ?>
         <div class="text-center">
             <h4><?php echo $cancion['titulo']; ?></h4>
@@ -37,13 +38,14 @@ if (!isset($_SESSION['usuario_id'])) {
     <?php else: ?>
         <p class="text-danger">Canción no encontrada.</p>
     <?php endif; ?>
-<?php else: ?>
+
+<?php elseif (isset($_GET['artista']) && is_numeric($_GET['artista'])): ?>
     <?php
-    $todas = CancionModelo::obtenerTodas();
-    if (count($todas) > 0):
+    $canciones = CancionModelo::obtenerPorArtista($_GET['artista']);
+    if (count($canciones) > 0):
     ?>
         <ul class="list-group">
-            <?php foreach ($todas as $c): ?>
+            <?php foreach ($canciones as $c): ?>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <?php echo $c['titulo']; ?>
                     <a href="?seccion=reproductor&id=<?php echo $c['id_cancion']; ?>" class="btn btn-sm btn-outline-primary">Reproducir</a>
@@ -51,8 +53,23 @@ if (!isset($_SESSION['usuario_id'])) {
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
-        <p class="text-muted">No hay canciones disponibles aún.</p>
+        <p class="text-muted">Este artista no tiene canciones disponibles.</p>
     <?php endif; ?>
+
+<?php else: ?>
+    <h5>Selecciona un artista para ver sus canciones:</h5>
+    <ul class="list-group">
+        <?php
+        $artistas = ArtistaModelo::obtenerTodos();
+        foreach ($artistas as $artista):
+        ?>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <?php echo $artista['nombre']; ?>
+                <a href="?seccion=reproductor&artista=<?php echo $artista['id_artista']; ?>" class="btn btn-sm btn-outline-secondary">Ver canciones</a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 <?php endif; ?>
 
-    <button class="volver-btn" onclick="history.back()">Volver atrás</button>
+<br>
+<a href="premium.php" class="btn btn-secondary mt-3">Volver</a> 

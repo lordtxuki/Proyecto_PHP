@@ -52,12 +52,6 @@ $artistas = ArtistaModelo::obtenerTodos();
 <?php endforeach; ?>
 </div>
 
-<button id="btnVolver">Volver</button>
-
-<script>
-    document.getElementById('btnVolver').addEventListener('click', function() {
-        history.back();
-    });
-</script>
+    <a href="premium.php" class="btn btn-secondary mt-3">Volver</a> 
 </body>
 </html>

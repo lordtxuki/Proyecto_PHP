@@ -37,8 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt_suscripcion->bind_param("is", $id_usuario, $tipo_cuenta);
             $stmt_suscripcion->execute();
 
-            $sql_pago = "INSERT INTO Pagos (id_usuario, metodo_pago, fecha_pago, monto) 
-                         VALUES (?, ?, NOW(), 9.99)";
+            $sql_pago = "INSERT INTO Pagos (id_usuario, metodo_pago, fecha_pago, cantidad) 
+                            VALUES (?, ?, NOW(), 9.99)";
             $stmt_pago = $conn->prepare($sql_pago);
             $stmt_pago->bind_param("is", $id_usuario, $metodo_pago);
             $stmt_pago->execute();

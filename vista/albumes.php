@@ -21,6 +21,7 @@ $albumes = AlbumModelo::obtenerTodos();
     <?php
     $ruta = $album['imagen_portada'];
     $existe = $ruta && file_exists('../' . $ruta);
+    $canciones = AlbumModelo::obtenerCanciones($album['id_album']);
     ?>
     <div class="album-card">
         <div class="card-header">
@@ -36,6 +37,16 @@ $albumes = AlbumModelo::obtenerTodos();
             </div>
         </div>
         <div class="card-body">
+            <ul class="lista-canciones">
+                <?php if (!empty($canciones)): ?>
+                    <?php foreach ($canciones as $cancion): ?>
+                        <li><?php echo htmlspecialchars($cancion['titulo']); ?></li>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <li>No hay canciones disponibles</li>
+                <?php endif; ?>
+            </ul>
+
             <?php if (isset($_SESSION['usuario_id']) && AlbumModelo::esPremium($_SESSION['usuario_id'])): ?>
                 <a href="agregar_cancion.php?id_album=<?php echo $album['id_album']; ?>" class="btn-small">Añadir Canción</a>
             <?php endif; ?>
@@ -43,8 +54,6 @@ $albumes = AlbumModelo::obtenerTodos();
     </div>
 <?php endforeach; ?>
 </div>
-<div class="btn-container">
-        <button class="volver-btn" onclick="history.back()">Volver atrás</button>
-</div>
+<a href="premium.php" class="btn btn-secondary mt-3">Volver</a>
 </body>
 </html>

@@ -4,13 +4,11 @@ require_once '../controlador/conexion.php';
 if (isset($_GET['eliminar'])) {
     $id_artista = intval($_GET['eliminar']);
 
-    // 1. Obtener álbumes del artista
     $stmt_albumes = $conexion->prepare("SELECT id_album FROM Albumes WHERE id_artista = ?");
     $stmt_albumes->bind_param("i", $id_artista);
     $stmt_albumes->execute();
     $res_albumes = $stmt_albumes->get_result();
 
-    // 2. Borrar canciones de cada álbum
     while ($album = $res_albumes->fetch_assoc()) {
         $id_album = $album['id_album'];
         $stmt_canciones = $conexion->prepare("DELETE FROM Canciones WHERE id_album = ?");
@@ -18,12 +16,10 @@ if (isset($_GET['eliminar'])) {
         $stmt_canciones->execute();
     }
 
-    // 3. Borrar álbumes del artista
     $stmt_borrar_albumes = $conexion->prepare("DELETE FROM Albumes WHERE id_artista = ?");
     $stmt_borrar_albumes->bind_param("i", $id_artista);
     $stmt_borrar_albumes->execute();
 
-    // 4. Borrar artista y eliminar su imagen
     $stmt_imagen = $conexion->prepare("SELECT imagen FROM Artistas WHERE id_artista = ?");
     $stmt_imagen->bind_param("i", $id_artista);
     $stmt_imagen->execute();
@@ -39,7 +35,8 @@ if (isset($_GET['eliminar'])) {
     $stmt_borrar_artista->bind_param("i", $id_artista);
     $stmt_borrar_artista->execute();
 
-    echo "<p style='color:green;'>Artista y todo su contenido eliminado correctamente.</p>";
+    header("Location: ?seccion=crear_artista&eliminado=1");
+    exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -67,7 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->bind_param("ss", $nombre, $ruta_relativa);
                 $stmt->execute();
 
-                echo "<p style='color:green;'>Artista creado correctamente con imagen.</p>";
+                header("Location: ?seccion=crear_artista&creado=1");
+                exit;
             } else {
                 echo "<p style='color:red;'>Error al subir la imagen.</p>";
             }
@@ -77,7 +75,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Mostrar artistas
+if (isset($_GET['creado'])) {
+    echo "<p style='color:green;'>Artista creado correctamente con imagen.</p>";
+}
+if (isset($_GET['eliminado'])) {
+    echo "<p style='color:green;'>Artista y todo su contenido eliminado correctamente.</p>";
+}
+
 $res = $conexion->query("SELECT id_artista, nombre, imagen FROM Artistas ORDER BY nombre ASC");
 ?>
 
@@ -95,17 +99,15 @@ $res = $conexion->query("SELECT id_artista, nombre, imagen FROM Artistas ORDER B
 <hr>
 
 <h2>Artistas existentes</h2>
-<ul>
+<ul style="list-style: none; padding: 0;">
 <?php while ($fila = $res->fetch_assoc()): ?>
     <?php
-    // Contar álbumes del artista
     $stmt_albumes = $conexion->prepare("SELECT id_album FROM Albumes WHERE id_artista = ?");
     $stmt_albumes->bind_param("i", $fila['id_artista']);
     $stmt_albumes->execute();
     $res_albumes = $stmt_albumes->get_result();
     $num_albumes = $res_albumes->num_rows;
 
-    // Contar canciones en esos álbumes
     $num_canciones = 0;
     while ($album = $res_albumes->fetch_assoc()) {
         $id_album = $album['id_album'];
@@ -116,11 +118,14 @@ $res = $conexion->query("SELECT id_artista, nombre, imagen FROM Artistas ORDER B
         $num_canciones += $resultado['total'];
     }
     ?>
-    <li>
-        <img src="<?php echo htmlspecialchars($fila['imagen']); ?>" alt="Imagen de <?php echo htmlspecialchars($fila['nombre']); ?>" style="width:50px; height:auto; vertical-align: middle; margin-right: 10px;">
-        <?php echo htmlspecialchars($fila['nombre']); ?>
-        (<?php echo $num_albumes; ?> álbum/es, <?php echo $num_canciones; ?> canción/es)
-        <a href="?seccion=crear_artista&eliminar=<?php echo $fila['id_artista']; ?>" onclick="return confirm('¿Seguro que quieres eliminar este artista y todo su contenido?')">❌</a>
+    <li style="margin-bottom: 15px; display: flex; align-items: center;">
+        <img src="../<?php echo htmlspecialchars($fila['imagen']); ?>" alt="Imagen de <?php echo htmlspecialchars($fila['nombre']); ?>" width="60" height="60" style="object-fit: cover; margin-right: 10px; border-radius: 5px;">
+        <div>
+            <strong><?php echo htmlspecialchars($fila['nombre']); ?></strong><br>
+            (<?php echo $num_albumes; ?> álbum/es, <?php echo $num_canciones; ?> canción/es)
+            <br>
+            <a href="?seccion=crear_artista&eliminar=<?php echo $fila['id_artista']; ?>" onclick="return confirm('¿Seguro que quieres eliminar este artista y todo su contenido?')">❌ Eliminar</a>
+        </div>
     </li>
 <?php endwhile; ?>
 </ul>

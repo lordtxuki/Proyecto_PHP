@@ -29,7 +29,7 @@ if ($id_album) {
     if ($album) {
         echo "<h2>Añadir Canción al Álbum: " . htmlspecialchars($album['titulo']) . "</h2>";
         ?>
-        <form action="/Recuperacion_Php/procesar_subida.php" method="POST" enctype="multipart/form-data">
+        <form action="../procesar_subida.php" method="POST" enctype="multipart/form-data" novalidate>
             <input type="hidden" name="id_album" value="<?php echo $id_album; ?>">
 
             <label for="titulo_cancion">Título de la Canción:</label>
@@ -41,7 +41,7 @@ if ($id_album) {
             <button type="submit">Añadir Canción</button>
         </form>
 
-        <button class="volver-btn" onclick="history.back()">Volver atrás</button>
+        <a href="premium.php" class="btn btn-secondary mt-3">Volver</a>
         <?php
     } else {
         echo "<p>Álbum no encontrado.</p>";

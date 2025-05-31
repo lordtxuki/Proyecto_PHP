@@ -1,79 +1,103 @@
-.container {
-    max-width: 800px;
-    margin: 0 auto;
+/* favoritos.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+    color: #f0f0f5;
+    min-height: 100vh;
 }
 
-.text-center {
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: rgba(30, 30, 47, 0.85);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+h2.text-center {
     text-align: center;
-    margin-top: 20px;
+    font-size: 2.8rem;
     margin-bottom: 30px;
-    font-family: Arial, sans-serif;
-    color: #333;
+    color: #70a1ff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+    font-weight: 700;
 }
 
 .favorito-card {
-    background: #f7f7f7;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 6px;
-    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    background-color: #2c2c4a;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 8px rgba(112, 161, 255, 0.3);
 }
 
-ul {
-    list-style-type: none;
+.favorito-card h4 {
+    margin-bottom: 15px;
+    color: #a0c4ff;
+    font-weight: 600;
+    border-bottom: 2px solid #70a1ff;
+    padding-bottom: 6px;
+}
+
+.favorito-card ul {
+    list-style: none;
     padding-left: 0;
 }
 
-li {
-    margin-bottom: 8px;
-    font-family: Arial, sans-serif;
-    color: #444;
-}
-
-a.btn-small {
-    margin-left: 15px;
-    font-size: 0.9em;
-    text-decoration: none;
-    color: #b22222;
-    border: 1px solid #b22222;
-    padding: 2px 8px;
-    border-radius: 4px;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-a.btn-small:hover {
-    background-color: #b22222;
-    color: white;
-}
-
-.volver-btn {
-    display: block;
-    margin: 30px auto;
-    padding: 10px 25px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-    font-size: 1em;
-}
-
-.volver-btn:hover {
-    background-color: #555;
-}
-
-.artista-favorito {
+.favorito-card li {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid #44558a;
 }
 
-.miniatura-artista {
+.favorito-card li:last-child {
+    border-bottom: none;
+}
+
+.favorito-card li span {
+    flex: 1;
+    padding-left: 10px;
+    color: #d0d6ff;
+}
+
+.favorito-card li img {
+    border-radius: 50%;
     width: 50px;
     height: 50px;
     object-fit: cover;
-    border-radius: 50%;
-    border: 1px solid #c0a060;
+}
+
+.btn-small {
+    background-color: #5578ff;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-small:hover {
+    background-color: #3356cc;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5578ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #3356cc;
 }

@@ -106,8 +106,8 @@ h2.text-center {
 }
 
 /* Botón Volver centrado y separado debajo de los artistas */
-#btnVolver {
-    display: block;
+a.btn.btn-secondary.mt-3 {
+    display: inline-block;
     margin: 2rem auto 0 auto;
     padding: 10px 25px;
     font-size: 1rem;
@@ -115,11 +115,16 @@ h2.text-center {
     border-radius: 8px;
     background-color: #4CAF50;
     color: white;
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
     box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     transition: background-color 0.3s ease;
+    /* Para centrar en bloque */
+    display: block;
+    width: max-content;
 }
 
-#btnVolver:hover {
+a.btn.btn-secondary.mt-3:hover {
     background-color: #43a047;
 }

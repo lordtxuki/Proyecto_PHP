@@ -49,20 +49,32 @@ button:hover {
     background-color: #45a049;
 }
 
-.volver-btn {
-    margin: 20px auto;
+a.btn.btn-secondary.mt-3 {
     display: block;
-    padding: 10px 15px;
-    background-color: #aaa;
+    width: fit-content;
+    margin: 2rem auto 0 auto;
+    padding: 10px 25px;
+    background-color: #007BFF; /* azul azulado */
     color: white;
-    border: none;
     border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 200px;
     text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.4);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
-.volver-btn:hover {
-    background-color: #888;
+a.btn.btn-secondary.mt-3:hover {
+    background-color: #6a0dad !important; /* morado vibrante para hover */
+}
+
+
+body {
+    background: linear-gradient(135deg, #a0c4ff, #4361ee);
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 0; /* para separar un poco del borde */
+    font-family: Arial, sans-serif;
+    color: #222;
 }

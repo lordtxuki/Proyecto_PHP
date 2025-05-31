@@ -83,12 +83,15 @@ $conn->query($sql);
 $sql = "CREATE TABLE IF NOT EXISTS Canciones (
     id_cancion INT AUTO_INCREMENT PRIMARY KEY,
     id_album INT,
+    id_artista INT,
     titulo VARCHAR(100) NOT NULL,
     duracion TIME NOT NULL,
     veces_reproducida INT DEFAULT 0,
     ruta VARCHAR(255) NOT NULL,
-    FOREIGN KEY (id_album) REFERENCES Albumes(id_album) ON DELETE CASCADE
+    FOREIGN KEY (id_album) REFERENCES Albumes(id_album) ON DELETE CASCADE,
+    FOREIGN KEY (id_artista) REFERENCES Artistas(id_artista) ON DELETE CASCADE
 )";
+
 $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS Playlist (
@@ -185,10 +188,6 @@ $sql = "CREATE TABLE IF NOT EXISTS playlists_favoritas (
 )";
 $conn->query($sql);
 
-$sql= "CREATE TABLE IF NOT EXISTS usuario_admin (
-    id_usuario INT PRIMARY KEY,
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario) ON DELETE CASCADE
-)";
 
 $conn->query($sql);
 

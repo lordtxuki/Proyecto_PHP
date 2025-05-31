@@ -72,6 +72,8 @@ $seccion = $_GET['seccion'] ?? 'inicio';
         <a href="?seccion=favoritos">Favoritos</a> |
         <a href="?seccion=reproductor">Reproductor</a> |
         <a href="?seccion=subir">Subir Canción/Álbum</a> |
+        <a href="?seccion=crear_artista">Crear Artista</a> |
+
         <a href="../logout.php">Cerrar sesión</a>
         </div>
     </nav>
@@ -99,6 +101,9 @@ $seccion = $_GET['seccion'] ?? 'inicio';
                 break;
             case 'recomendaciones':
                 include 'recomendaciones.php';
+                break;
+            case 'crear_artista':
+                include 'crear_artista.php';
                 break;
             default:
                 echo "<p>Usa el menú para acceder a tus secciones.</p>";

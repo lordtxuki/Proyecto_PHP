@@ -61,19 +61,17 @@ $favoritos = FavoritoModelo::obtener($_SESSION['usuario_id']);
                     <li>No tienes artistas favoritos.</li>
                 <?php else: ?>
                     <?php foreach ($favoritos['artistas'] as $art): ?>
-                        <li class="artista-favorito">
-                            <img src="/Recuperacion_Php/imagenes/artistas/<?php echo rawurlencode($art['imagen']); ?>" alt="<?php echo htmlspecialchars($art['nombre']); ?>" class="miniatura-artista">
-                            <?php echo htmlspecialchars($art['nombre']); ?>
-                            <a class="btn-small" href="../controlador/favoritoControlador.php?accion=quitar&tipo=artista&id=<?php echo $art['id_artista']; ?>">Quitar</a>
-                        </li>
-
+                        <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <img src="../<?php echo htmlspecialchars($art['imagen']); ?>" alt="Imagen de <?php echo htmlspecialchars($art['nombre']); ?>" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%;">
+                            <span><?php echo htmlspecialchars($art['nombre']); ?></span>
+                            <a class="btn-small" style="margin-left: auto;" href="../controlador/favoritoControlador.php?accion=quitar&tipo=artista&id=<?php echo $art['id_artista']; ?>">Quitar</a>
                         </li>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </ul>
         </div>
 
-        <button class="volver-btn" onclick="history.back()">Volver atrás</button>
+        <a href="premium.php" class="btn btn-secondary mt-3">Volver</a> 
     </div>
 </body>
 </html>

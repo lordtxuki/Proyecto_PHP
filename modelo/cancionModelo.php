@@ -26,4 +26,20 @@ class CancionModelo {
         $res = $conexion->query("SELECT id_cancion, titulo, duracion, ruta FROM Canciones");
         return $res->fetch_all(MYSQLI_ASSOC);
     }
+
+
+    public static function obtenerPorArtista($id_artista) {
+        global $conexion;
+        $stmt = $conexion->prepare(
+            "SELECT c.* FROM Canciones c 
+            JOIN Albumes a ON c.id_album = a.id_album
+            WHERE a.id_artista = ?"
+        );
+        $stmt->bind_param("i", $id_artista);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 }
+
+
+}
+

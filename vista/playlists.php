@@ -89,8 +89,7 @@ $cancionesDisponibles = CancionModelo::obtenerTodas();
     <?php endforeach; ?>
 
     <div class="text-center mt-4">
-        <button class="volver-btn" onclick="history.back()">Volver atrás</button>
-    </div>
+    <a href="premium.php" class="btn btn-secondary mt-3">Volver</a>     </div>
 </div>
 
 </body>
