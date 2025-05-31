@@ -1,58 +1,58 @@
 body {
-    background-color: #fde8e8;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    background-color: #fde8e8; /* Fondo color rosa muy claro */
+    font-family: Arial, sans-serif; /* Fuente Arial o sans-serif */
+    margin: 0; /* Sin margen externo */
+    padding: 0; /* Sin padding */
+    text-align: center; /* Centrar texto en todo el body */
 }
 
 header {
-    background-color: #e53e3e; 
-    color: white;
-    padding: 20px 0;
+    background-color: #e53e3e; /* Fondo rojo fuerte */
+    color: white; /* Texto blanco */
+    padding: 20px 0; /* Espaciado vertical arriba y abajo */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2em;
-    color: white;
-    font-weight: bold;
+    margin: 0; /* Sin margen externo */
+    font-size: 2em; /* Tamaño de fuente grande */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Texto en negrita */
 }
 
 nav {
-    background-color: #c53030;
-    padding: 10px 0;
+    background-color: #c53030; /* Fondo rojo más oscuro */
+    padding: 10px 0; /* Espaciado vertical */
 }
 
 nav .contenedor {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: flex; /* Contenedor flexible */
+    justify-content: center; /* Centrar horizontalmente los enlaces */
+    flex-wrap: wrap; /* Permitir que los enlaces se envuelvan en varias filas */
+    gap: 20px; /* Espacio entre los enlaces */
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+    color: white; /* Enlaces en color blanco */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
 }
 
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Subrayar cuando el cursor está encima */
 }
 
 main {
-    padding: 30px;
-    background-color: white;
-    max-width: 800px;
-    margin: 30px auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 10px;
+    padding: 30px; /* Espaciado interno */
+    background-color: white; /* Fondo blanco */
+    max-width: 800px; /* Ancho máximo */
+    margin: 30px auto; /* Margen vertical y centrado horizontal */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave alrededor */
+    border-radius: 10px; /* Bordes redondeados */
 }
 
 .contenedor {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 15px;
-    font-weight: bold;
+    max-width: 800px; /* Ancho máximo */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 0 15px; /* Padding horizontal */
+    font-weight: bold; /* Texto en negrita */
 }

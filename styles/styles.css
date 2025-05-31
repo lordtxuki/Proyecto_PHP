@@ -1,96 +1,103 @@
+/* Reinicio de márgenes, padding y uso de box-sizing para control total de dimensiones */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif; /* Fuente Arial para todo el documento */
 }
 
+/* Estilos generales del body */
 body {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2); /* Degradado diagonal */
+    display: flex; /* Usamos flexbox para centrar contenido */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    height: 100vh; /* Altura total de la ventana */
+    padding: 10px; /* Espacio interno para que no toque bordes */
 }
 
+/* Contenedor principal con fondo blanco y sombra */
 .contenedor {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 800px;
-    text-align: center;
+    padding: 20px; /* Espacio interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    width: 100%; /* Ocupa todo el ancho posible */
+    max-width: 800px; /* Pero no más de 800px */
+    text-align: center; /* Texto centrado */
 }
 
-/* Contenedor del formulario */
+/* Contenedor del formulario: usa flexbox con espacio entre y envoltura */
 .formulario {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+    justify-content: space-between; /* Espacio entre columnas */
+    flex-wrap: wrap; /* Permite que las columnas bajen si no caben */
+    gap: 20px; /* Separación entre columnas y filas */
 }
 
-/* Estilo de cada columna */
+/* Cada columna del formulario ocupa aproximadamente la mitad */
 .columna {
-    width: 48%;
+    width: 48%; /* Dos columnas con un pequeño margen entre ellas */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Apila campos verticalmente */
 }
 
-/* Estilo de los campos */
+/* Cada campo tiene un margen inferior para separar */
 .campo {
     margin-bottom: 10px;
-    text-align: left;
+    text-align: left; /* Alinea las etiquetas y campos a la izquierda */
 }
 
+/* Etiquetas */
 label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+    display: block; /* Ocupa toda la línea */
+    font-weight: bold; /* Negrita para destacar */
+    margin-bottom: 5px; /* Separación del campo */
     font-size: 14px;
-    color: #555;
+    color: #555; /* Gris oscuro */
 }
 
+/* Estilo común para inputs y selects */
 input, select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    width: 100%; /* Ocupa todo el ancho de la columna */
+    padding: 8px; /* Espacio interno para mejor usabilidad */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
     font-size: 14px;
 }
 
+/* Estilos para campos cuando están enfocados */
 input:focus, select:focus {
-    border-color: #667eea;
-    outline: none;
+    border-color: #667eea; /* Color del degradado azul */
+    outline: none; /* Elimina el contorno por defecto */
 }
 
-/* Botón de registro */
+/* Botón de envío o acción principal */
 .boton {
-    background: #667eea;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
+    background: #667eea; /* Azul vibrante */
+    color: white; /* Texto blanco */
+    padding: 10px; /* Espacio interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Texto más grande */
+    cursor: pointer; /* Cursor mano para indicar clic */
+    width: 100%; /* Ocupa todo el ancho de su columna */
+    margin-top: 10px; /* Separación superior */
 }
 
+/* Cambio de color al pasar el cursor por encima */
 .boton:hover {
-    background: #5563c1;
+    background: #5563c1; /* Azul más oscuro */
 }
 
-/* Aviso de pago */
+/* Aviso o mensaje sobre pago */
 #aviso_pago {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Separación abajo para no pegarse con lo siguiente */
 }
 
-/* Datos de pago */
+/* Sección para datos de pago */
 #datos_pago {
     padding: 10px;
-    background: #f9f9f9;
+    background: #f9f9f9; /* Fondo gris claro para diferenciar */
     border-radius: 5px;
 }

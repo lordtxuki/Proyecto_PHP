@@ -1,93 +1,94 @@
-/* Fondo de toda la página con un degradado suave */
 body {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 2rem 0;
-    color: #333;
+    background: linear-gradient(135deg, #667eea, #764ba2); /* degradado diagonal de azul a morado */
+    font-family: Arial, sans-serif; /* fuente general */
+    margin: 0; /* sin margen externo */
+    padding: 2rem 0; /* espacio arriba y abajo */
+    color: #333; /* color texto base */
 }
 
 /* Contenedor principal centrado, fondo blanco y sombra */
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1.5rem;
+    max-width: 1100px; /* ancho máximo */
+    margin: 0 auto; /* centrado horizontal */
+    background: #fff; /* fondo blanco */
+    border-radius: 12px; /* bordes redondeados */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* sombra sutil */
+    padding: 2rem; /* relleno interior */
+    display: grid; /* uso de grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* columnas adaptativas */
+    gap: 1.5rem; /* separación entre elementos */
 }
 
 /* Tarjeta de artista con fondo suave y sombra */
 .artist-card {
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
+    background: #f9f9f9; /* fondo claro */
+    border-radius: 10px; /* bordes redondeados */
+    padding: 1rem; /* espacio interno */
+    text-align: center; /* texto centrado */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra ligera */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* transición suave */
+    cursor: pointer; /* cursor de mano */
 }
 
+/* Efecto hover: eleva y aumenta sombra */
 .artist-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    transform: translateY(-6px); /* sube la tarjeta */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* sombra más marcada */
 }
 
 /* Imagen de artista */
 .artist-card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 0.8rem;
-    border: 2px solid #764ba2;
+    width: 100%; /* ocupa todo el ancho del contenedor */
+    height: 150px; /* altura fija */
+    object-fit: cover; /* recorta para cubrir sin deformar */
+    border-radius: 10px; /* bordes redondeados */
+    margin-bottom: 0.8rem; /* margen debajo */
+    border: 2px solid #764ba2; /* borde morado */
 }
 
-/* Placeholder de imagen */
+/* Placeholder de imagen (si no hay imagen real) */
 .img-placeholder {
-    width: 100%;
-    height: 150px;
-    background-color: #ddd;
-    color: #666;
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    margin-bottom: 0.8rem;
+    width: 100%; /* igual tamaño que imagen */
+    height: 150px; /* altura fija */
+    background-color: #ddd; /* fondo gris claro */
+    color: #666; /* texto gris */
+    font-size: 1.1rem; /* tamaño texto */
+    display: flex; /* contenedor flex */
+    align-items: center; /* centrado vertical */
+    justify-content: center; /* centrado horizontal */
+    border-radius: 10px; /* bordes redondeados */
+    margin-bottom: 0.8rem; /* margen debajo */
 }
 
 /* Título centrado */
 h2.text-center {
-    text-align: center;
-    color: #fff;
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    text-align: center; /* texto centrado */
+    color: #fff; /* texto blanco */
+    font-size: 2.2rem; /* tamaño grande */
+    margin-bottom: 2rem; /* margen abajo */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* sombra texto para legibilidad */
 }
 
-/* Acciones: botones agrupados */
+/* Contenedor para botones de acción */
 .acciones {
-    margin-top: 10px;
+    margin-top: 10px; /* margen arriba */
 }
 
-/* Botones pequeños con colores */
+/* Botones pequeños con estilos y colores */
 .btn-small {
-    display: inline-block;
-    padding: 6px 12px;
-    margin: 4px 3px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 0.9em;
-    color: white;
-    font-weight: 600;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    transition: background-color 0.3s ease;
+    display: inline-block; /* inline para que se alineen */
+    padding: 6px 12px; /* relleno interno */
+    margin: 4px 3px; /* margen externo */
+    text-decoration: none; /* sin subrayado */
+    border-radius: 6px; /* bordes redondeados */
+    font-size: 0.9em; /* tamaño letra */
+    color: white; /* texto blanco */
+    font-weight: 600; /* negrita */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* sombra ligera */
+    transition: background-color 0.3s ease; /* transición suave al cambiar color */
 }
 
+/* Variantes de color y efectos hover para botones */
 .verde { background-color: #4CAF50; }
 .verde:hover { background-color: #43a047; }
 
@@ -100,31 +101,31 @@ h2.text-center {
 .amarillo { background-color: #fbc02d; color: #333; }
 .amarillo:hover { background-color: #f9a825; color: #222; }
 
-/* Fondo verde clarito para el área de artistas */
+/* Fondo verde clarito para el área de artistas (sobrescribe .container) */
 .container {
     background-color: #d9f0d9;
 }
 
-/* Botón Volver centrado y separado debajo de los artistas */
+/* Botón Volver centrado y con espacio debajo */
 a.btn.btn-secondary.mt-3 {
-    display: inline-block;
-    margin: 2rem auto 0 auto;
-    padding: 10px 25px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 8px;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease;
-    /* Para centrar en bloque */
-    display: block;
-    width: max-content;
+    display: inline-block; /* para poder dar tamaño */
+    margin: 2rem auto 0 auto; /* arriba y centrado horizontal */
+    padding: 10px 25px; /* relleno interno */
+    font-size: 1rem; /* tamaño letra */
+    border: none; /* sin borde */
+    border-radius: 8px; /* bordes redondeados */
+    background-color: #4CAF50; /* verde */
+    color: white; /* texto blanco */
+    text-align: center; /* texto centrado */
+    text-decoration: none; /* sin subrayado */
+    cursor: pointer; /* puntero mano */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2); /* sombra */
+    transition: background-color 0.3s ease; /* transición suave */
+    display: block; /* bloque para centrado */
+    width: max-content; /* ancho ajustado al contenido */
 }
 
+/* Hover para botón Volver */
 a.btn.btn-secondary.mt-3:hover {
-    background-color: #43a047;
+    background-color: #43a047; /* verde más oscuro */
 }

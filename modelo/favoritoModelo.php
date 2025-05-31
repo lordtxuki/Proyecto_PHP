@@ -2,6 +2,7 @@
 require_once '../controlador/conexion.php';
 
 class FavoritoModelo {
+    // Agrega un favorito según el tipo: canción, álbum, artista o playlist
     public static function agregar($id_usuario, $id, $tipo) {
         global $conexion;
 
@@ -22,18 +23,21 @@ class FavoritoModelo {
             $campo = "id_playlist";
         }
 
+        // Comprobar si ya existe para no duplicar
         $check = $conexion->prepare("SELECT * FROM $tabla WHERE id_usuario = ? AND $campo = ?");
         $check->bind_param("ii", $id_usuario, $id);
         $check->execute();
         $result = $check->get_result();
 
         if ($result->num_rows == 0) {
+            // Insertar el favorito si no existe
             $stmt = $conexion->prepare("INSERT INTO $tabla (id_usuario, $campo) VALUES (?, ?)");
             $stmt->bind_param("ii", $id_usuario, $id);
             $stmt->execute();
         }
     }
 
+    // Quitar favorito según el tipo
     public static function quitar($id_usuario, $id, $tipo) {
         global $conexion;
         if ($tipo == 'cancion') {
@@ -49,6 +53,7 @@ class FavoritoModelo {
         $stmt->execute();
     }
 
+    // Obtener todos los favoritos del usuario, agrupados por tipo
     public static function obtener($id_usuario) {
         global $conexion;
         $res = [
@@ -64,6 +69,7 @@ class FavoritoModelo {
         return $res;
     }
 
+    // Comprobar si un artista está marcado como favorito por un usuario
     public static function esFavorito($id_usuario, $id_artista, $tipo) {
         global $conexion;
 
@@ -77,6 +83,7 @@ class FavoritoModelo {
         return false;
     }
 
+    // Obtener todos los artistas favoritos de un usuario
     public static function obtenerArtistasFavoritos($id_usuario) {
         global $conexion;
         $stmt = $conexion->prepare("

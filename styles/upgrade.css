@@ -1,89 +1,148 @@
-/* styles/upgrade.css */
-
+/* Estilos generales para todo el documento */
 body {
+    /* Color de fondo gris muy claro */
     background-color: #f8f9fa;
+    /* Tipografía principal, con fuentes alternativas por si no está disponible */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Eliminar margen y padding por defecto */
     margin: 0;
     padding: 0;
+    /* Usamos flexbox para centrar vertical y horizontalmente el contenido */
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Altura mínima de toda la ventana para centrar verticalmente */
     min-height: 100vh;
 }
 
+/* Contenedor principal que engloba el formulario o contenido */
 .container {
+    /* Fondo blanco para el contenedor */
     background: #ffffff;
+    /* Ancho máximo para no hacerse muy grande en pantallas grandes */
     max-width: 480px;
+    /* Ancho relativo para que en pantallas pequeñas ocupe el 90% */
     width: 90%;
+    /* Espaciado interno para separar el contenido de los bordes */
     padding: 30px 25px;
+    /* Sombra suave para dar profundidad */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    /* Bordes redondeados para suavizar la apariencia */
     border-radius: 8px;
 }
 
+/* Estilo para todos los títulos h2 */
 h2 {
+    /* Centrar el texto del título */
     text-align: center;
+    /* Color oscuro azulado para el texto */
     color: #2c3e50;
+    /* Separación inferior para separar del siguiente elemento */
     margin-bottom: 25px;
+    /* Peso de fuente seminegrita */
     font-weight: 600;
 }
 
+/* Estilos para las etiquetas (labels) dentro de formularios */
 form label {
+    /* Mostrar cada etiqueta en bloque para que ocupe toda la línea */
     display: block;
+    /* Negrita para destacar el texto */
     font-weight: 600;
+    /* Margen inferior para separar de los inputs */
     margin-bottom: 8px;
+    /* Color gris oscuro para el texto */
     color: #34495e;
 }
 
+/* Estilos comunes para inputs de texto, mes y email */
 input[type="text"],
 input[type="month"],
 input[type="email"] {
+    /* Ancho completo para que ocupen todo el contenedor */
     width: 100%;
+    /* Espacio interno para que el texto no quede pegado al borde */
     padding: 10px 12px;
+    /* Margen inferior para separar del siguiente elemento */
     margin-bottom: 20px;
+    /* Borde gris claro un poco más grueso que el normal */
     border: 1.8px solid #ced4da;
+    /* Bordes redondeados para suavizar */
     border-radius: 5px;
+    /* Tamaño de la fuente para facilitar lectura */
     font-size: 1rem;
+    /* Transición suave para el cambio de borde cuando se enfoca */
     transition: border-color 0.3s ease;
 }
 
+/* Estilos cuando un input está enfocado (seleccionado) */
 input[type="text"]:focus,
 input[type="month"]:focus,
 input[type="email"]:focus {
+    /* Cambiar color del borde a verde */
     border-color: #4caf50;
+    /* Eliminar el borde de enfoque por defecto del navegador */
     outline: none;
 }
 
+/* Estilos para el botón de enviar */
 button[type="submit"] {
+    /* Ancho completo para que ocupe todo el contenedor */
     width: 100%;
+    /* Espacio interno para hacer el botón más grande */
     padding: 12px;
+    /* Color de fondo verde */
     background-color: #28a745;
+    /* Sin borde visible */
     border: none;
+    /* Texto blanco */
     color: #fff;
+    /* Fuente negrita para que destaque */
     font-weight: 700;
+    /* Tamaño de fuente un poco mayor */
     font-size: 1.1rem;
+    /* Bordes redondeados para un botón suave */
     border-radius: 5px;
+    /* Cambia el cursor a mano para indicar que es clicable */
     cursor: pointer;
+    /* Transición suave para el cambio de color al hacer hover */
     transition: background-color 0.25s ease;
 }
 
+/* Cambio de color cuando el ratón está sobre el botón */
 button[type="submit"]:hover {
+    /* Verde más oscuro para el efecto hover */
     background-color: #218838;
 }
 
+/* Estilo para botones secundarios (enlaces que parecen botón) */
 .btn-secondary {
+    /* Mostrar como bloque para que ocupe toda la línea */
     display: block;
+    /* Ancho completo para que ocupe todo el contenedor */
     width: 100%;
+    /* Texto centrado */
     text-align: center;
+    /* Margen superior para separarlo del contenido anterior */
     margin-top: 15px;
+    /* Espacio interno para hacer el botón más alto */
     padding: 10px 0;
+    /* Fondo gris oscuro */
     background-color: #6c757d;
+    /* Texto blanco */
     color: white;
+    /* Bordes redondeados */
     border-radius: 5px;
+    /* Quitar subrayado de enlaces */
     text-decoration: none;
+    /* Fuente en negrita */
     font-weight: 600;
+    /* Transición para cambio de color suave */
     transition: background-color 0.3s ease;
 }
 
+/* Color del botón secundario al pasar el ratón */
 .btn-secondary:hover {
+    /* Gris un poco más oscuro */
     background-color: #5a6268;
 }

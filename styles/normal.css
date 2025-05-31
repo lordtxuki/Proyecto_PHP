@@ -1,58 +1,67 @@
+/* Estilo general para el body */
 body {
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+    background-color: #f0f0f0;  /* Fondo gris claro */
+    font-family: Arial, sans-serif; /* Fuente base */
+    margin: 0;  /* Sin margen */
+    padding: 0; /* Sin padding */
+    text-align: center; /* Centrar texto por defecto */
 }
 
+/* Estilo para el header */
 header {
-    background-color:#4c51bf;
-    color: white;
-    padding: 20px 0;
+    background-color: #4c51bf; /* Azul oscuro */
+    color: white; /* Texto blanco */
+    padding: 20px 0; /* Espacio arriba y abajo */
 }
 
+/* Título principal dentro del header */
 header h1 {
-    margin: 0;
-    font-size: 2em;
-    color: white;
-    font-weight: bold;
+    margin: 0; /* Sin margen */
+    font-size: 2em; /* Tamaño de fuente grande */
+    color: white; /* Texto blanco (aunque ya está definido en header) */
+    font-weight: bold; /* Texto en negrita */
 }
 
+/* Barra de navegación */
 nav {
-    background-color:#4c51bf;
-    padding: 10px 0;
+    background-color: #4c51bf; /* Mismo azul que header */
+    padding: 10px 0; /* Espacio arriba y abajo */
 }
 
+/* Contenedor dentro de nav para centrar los enlaces */
 nav .contenedor {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: flex; /* Usar flexbox */
+    justify-content: center; /* Centrar horizontalmente */
+    flex-wrap: wrap; /* Permitir que los enlaces bajen a la siguiente línea si no caben */
+    gap: 20px; /* Espacio entre los enlaces */
 }
 
+/* Enlaces del nav */
 nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+    color: white; /* Texto blanco */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Negrita */
 }
 
+/* Efecto al pasar el cursor sobre los enlaces */
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Subrayado */
 }
 
+/* Área principal de contenido */
 main {
-    padding: 30px;
-    background-color: white;
-    max-width: 800px;
-    margin: 30px auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 10px;
+    padding: 30px; /* Espacio interior */
+    background-color: white; /* Fondo blanco */
+    max-width: 800px; /* Máximo ancho para que no sea muy ancho */
+    margin: 30px auto; /* Centrado horizontal y margen vertical */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave */
+    border-radius: 10px; /* Bordes redondeados */
 }
 
+/* Contenedor general para limitar ancho y dar margen lateral */
 .contenedor {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 0 15px;
-    font-weight: bold;
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 0 15px; /* Espaciado lateral */
+    font-weight: bold; /* Negrita en el texto dentro */
 }

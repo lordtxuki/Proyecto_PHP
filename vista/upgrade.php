@@ -6,8 +6,10 @@
     <link rel="stylesheet" href="../styles/upgrade.css" />
 </head>
 <body>
+    <!-- Formulario para actualizar a usuario Premium -->
     <form id="formPremium" action="../controlador/upgrade.php" method="POST" novalidate>
         <div class="mb-3">
+            <!-- Patrón para 16 dígitos -->
             <label class="form-label">Tarjeta de crédito (16 dígitos)</label>
             <input
                 type="text"
@@ -23,6 +25,7 @@
             >
         </div>
         <div class="mb-3">
+            <!-- Campo mes y año de vencimiento de la tarjeta -->
             <label class="form-label">Vencimiento</label>
             <input
                 type="month"
@@ -33,6 +36,7 @@
             >
         </div>
         <div class="mb-3">
+            <!-- CVV: 3 o 4 dígitos -->
             <label class="form-label">CVV</label>
             <input
                 type="text"
@@ -48,6 +52,7 @@
             >
         </div>
         <div class="mb-3">
+            <!-- Email de PayPal opcional -->
             <label class="form-label">PayPal (opcional)</label>
             <input
                 type="email"
@@ -64,18 +69,21 @@
     </form>
 
     <script>
+    // Validación previa en JS al enviar el formulario
     document.getElementById('formPremium').addEventListener('submit', function(e) {
         const tarjeta = document.getElementById('tarjeta').value.trim();
         const vencimiento = document.getElementById('vencimiento').value.trim();
         const cvv = document.getElementById('cvv').value.trim();
         const paypal = document.getElementById('paypal').value.trim();
 
+        // Validamos que se haya puesto tarjeta o paypal (al menos uno)
         if (!tarjeta && !paypal) {
             alert('Debes ingresar datos de tarjeta o un correo de PayPal.');
-            e.preventDefault();
+            e.preventDefault(); // Evita el envío
             return;
         }
 
+        // Si hay tarjeta, validar formato tarjeta, vencimiento y cvv
         if (tarjeta) {
             if (!/^\d{16}$/.test(tarjeta)) {
                 alert('La tarjeta debe contener exactamente 16 dígitos.');
@@ -94,6 +102,7 @@
             }
         }
 
+        // Si hay paypal, validar formato de email
         if (paypal) {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(paypal)) {
@@ -106,4 +115,3 @@
     </script>
 </body>
 </html>
-

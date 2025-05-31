@@ -1,10 +1,14 @@
 <?php
+// Iniciar sesión si no está iniciada
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+
+// Incluir modelos para obtener artistas y gestionar favoritos
 require_once '../modelo/artistaModelo.php';
 require_once '../modelo/favoritoModelo.php';
 
+// Obtener todos los artistas desde el modelo
 $artistas = ArtistaModelo::obtenerTodos();
 ?>
 <!DOCTYPE html>
@@ -12,6 +16,7 @@ $artistas = ArtistaModelo::obtenerTodos();
 <head>
     <meta charset="UTF-8">
     <title>Artistas</title>
+    <!-- Enlaces a hojas de estilo para álbumes y artistas -->
     <link rel="stylesheet" href="../styles/albumes.css">
     <link rel="stylesheet" href="../styles/artistas.css">
 </head>
@@ -20,28 +25,42 @@ $artistas = ArtistaModelo::obtenerTodos();
 <div class="container">
 <?php foreach ($artistas as $artista): ?>
     <?php
+    // Ruta de la imagen del artista
     $ruta = $artista['imagen'];
+
+    // Verificar si la imagen existe físicamente en el servidor
     $existe = $ruta && file_exists('../' . $ruta);
+
+    // Obtener el ID del artista
     $id_artista = $artista['id_artista'];
+
+    // Verificar si el usuario actual sigue a este artista (bool)
     $seguido = ArtistaModelo::esSeguido($_SESSION['usuario_id'], $id_artista);
+
+    // Verificar si este artista está marcado como favorito por el usuario (bool)
     $favorito = FavoritoModelo::esFavorito($_SESSION['usuario_id'], $id_artista, 'artista');
     ?>
     <div class="artist-card">
         <?php if ($existe): ?>
+            <!-- Mostrar imagen del artista si existe -->
             <img src="../<?php echo htmlspecialchars($ruta); ?>" alt="Artista <?php echo htmlspecialchars($artista['nombre']); ?>">
         <?php else: ?>
+            <!-- Mostrar placeholder si no hay imagen -->
             <div class="img-placeholder">Imagen</div>
         <?php endif; ?>
         <div>
+            <!-- Mostrar el nombre del artista -->
             <strong><?php echo htmlspecialchars($artista['nombre']); ?></strong>
         </div>
         <div class="acciones">
+            <!-- Botón para seguir o dejar de seguir al artista -->
             <?php if ($seguido): ?>
                 <a href="../controlador/artistaControlador.php?accion=dejar&id=<?php echo $id_artista; ?>" class="btn-small rojo">Dejar de seguir</a>
             <?php else: ?>
                 <a href="../controlador/artistaControlador.php?accion=seguir&id=<?php echo $id_artista; ?>" class="btn-small verde">Seguir</a>
             <?php endif; ?>
 
+            <!-- Botón para agregar o quitar artista de favoritos -->
             <?php if ($favorito): ?>
                 <a href="../controlador/artistaControlador.php?accion=quitar_favorito&id=<?php echo $id_artista; ?>" class="btn-small amarillo">Quitar favorito</a>
             <?php else: ?>
@@ -52,6 +71,7 @@ $artistas = ArtistaModelo::obtenerTodos();
 <?php endforeach; ?>
 </div>
 
-    <a href="premium.php" class="btn btn-secondary mt-3">Volver</a> 
+<!-- Botón para volver a la página premium -->
+<a href="premium.php" class="btn btn-secondary mt-3">Volver</a> 
 </body>
 </html>

@@ -1,80 +1,79 @@
 form {
-    width: 400px;
-    margin: 30px auto;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 15px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    font-family: Arial, sans-serif;
+    width: 400px; /* Ancho fijo del formulario */
+    margin: 30px auto; /* Margen arriba y abajo y centrado horizontal */
+    padding: 20px; /* Espacio interno */
+    border: 2px solid #ccc; /* Borde gris claro */
+    border-radius: 15px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo casi blanco */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave */
+    font-family: Arial, sans-serif; /* Fuente */
 }
 
 h2 {
-    text-align: center;
-    font-size: 24px;
-    color: #333;
+    text-align: center; /* Centrar título */
+    font-size: 24px; /* Tamaño del texto */
+    color: #333; /* Color gris oscuro */
 }
 
 label {
-    font-weight: bold;
-    display: block;
-    margin-top: 15px;
-    color: #444;
+    font-weight: bold; /* Negrita */
+    display: block; /* Ocupa toda la línea */
+    margin-top: 15px; /* Espacio arriba */
+    color: #444; /* Color gris */
 }
 
 input[type="text"],
 input[type="file"] {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
-    box-sizing: border-box;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 8px; /* Espacio interno */
+    margin-top: 5px; /* Espacio arriba */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 14px; /* Tamaño de texto */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
 }
 
 button {
-    margin-top: 20px;
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
+    margin-top: 20px; /* Separación arriba */
+    padding: 10px 15px; /* Espacio interno */
+    background-color: #4CAF50; /* Verde */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño texto */
+    cursor: pointer; /* Cursor tipo mano */
+    width: 100%; /* Ancho completo */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Verde más oscuro al pasar el cursor */
 }
 
 a.btn.btn-secondary.mt-3 {
-    display: block;
-    width: fit-content;
-    margin: 2rem auto 0 auto;
-    padding: 10px 25px;
-    background-color: #007BFF; /* azul azulado */
-    color: white;
-    border-radius: 8px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1rem;
-    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.4);
-    transition: background-color 0.3s ease;
-    cursor: pointer;
+    display: block; /* Elemento bloque */
+    width: fit-content; /* Ancho ajustado al contenido */
+    margin: 2rem auto 0 auto; /* Margen arriba y centrado */
+    padding: 10px 25px; /* Espacio interno */
+    background-color: #007BFF; /* Azul azulado */
+    color: white; /* Texto blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center; /* Texto centrado */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 1rem; /* Tamaño de texto */
+    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.4); /* Sombra azul */
+    transition: background-color 0.3s ease; /* Transición suave para cambio de color */
+    cursor: pointer; /* Cursor tipo mano */
 }
 
 a.btn.btn-secondary.mt-3:hover {
-    background-color: #6a0dad !important; /* morado vibrante para hover */
+    background-color: #6a0dad !important; /* Morado vibrante al pasar el cursor */
 }
 
-
 body {
-    background: linear-gradient(135deg, #a0c4ff, #4361ee);
-    min-height: 100vh;
-    margin: 0;
-    padding: 40px 0; /* para separar un poco del borde */
-    font-family: Arial, sans-serif;
-    color: #222;
+    background: linear-gradient(135deg, #a0c4ff, #4361ee); /* Fondo degradado azul */
+    min-height: 100vh; /* Altura mínima para pantalla completa */
+    margin: 0; /* Sin margen */
+    padding: 40px 0; /* Separación vertical */
+    font-family: Arial, sans-serif; /* Fuente */
+    color: #222; /* Color de texto gris oscuro */
 }

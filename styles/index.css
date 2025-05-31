@@ -1,138 +1,147 @@
-/* General */
+/* Estilos generales para el body */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+    background-color: #f8f9fa; /* Fondo claro */
+    color: #333; /* Color de texto oscuro para buena lectura */
 }
 
-/* Navbar */
+/* Barra de navegación */
 .navbar {
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem; /* Espaciado interior */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera para profundidad */
 }
 
+/* Marca o logo en la navbar */
 .navbar-brand {
-    font-weight: bold;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1.4rem; /* Tamaño destacado */
+    display: flex; /* Flexbox para alinear contenido */
+    align-items: center; /* Centrado vertical */
+    gap: 10px; /* Espacio entre logo y texto */
 }
 
 .navbar-brand img {
-    border-radius: 5px;
+    border-radius: 5px; /* Bordes redondeados en imagen del logo */
 }
 
-/* Botones de navegación */
+/* Botones dentro de la navbar */
 .navbar .btn-outline-light,
 .navbar .btn-primary {
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    transition: all 0.3s ease-in-out;
+    font-weight: 500; /* Peso medio para texto */
+    padding: 0.5rem 1rem; /* Relleno interno para clic fácil */
+    border-radius: 25px; /* Botones redondeados */
+    transition: all 0.3s ease-in-out; /* Transiciones suaves para interacciones */
 }
 
+/* Hover para botón outline-light */
 .navbar .btn-outline-light:hover {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: #ffffff; /* Fondo blanco al pasar el mouse */
+    color: #000000; /* Texto negro para contraste */
 }
 
+/* Hover para botón primary */
 .navbar .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Azul más oscuro */
 }
 
 /* Encabezado principal */
 h1 {
-    font-size: 2.7rem;
-    color: #212529;
-    font-weight: 700;
+    font-size: 2.7rem; /* Tamaño grande para jerarquía */
+    color: #212529; /* Color oscuro para buen contraste */
+    font-weight: 700; /* Negrita fuerte */
 }
 
+/* Párrafo centrado */
 p.text-center {
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: auto;
-    color: #555;
+    font-size: 1.1rem; /* Tamaño ligeramente mayor */
+    max-width: 700px; /* Ancho máximo para mejor legibilidad */
+    margin: auto; /* Centrado horizontal */
+    color: #555; /* Gris medio */
 }
 
-/* Tarjetas de reseña */
+/* Tarjetas para reseñas o contenido destacado */
 .card {
-    border: none;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
+    border: none; /* Sin borde */
+    border-radius: 20px; /* Bordes muy redondeados */
+    overflow: hidden; /* Recorte para evitar desbordes */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+    background-color: #fff; /* Fondo blanco */
 }
 
+/* Efecto hover para tarjetas: levanta y sombra */
 .card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-6px); /* Desplazamiento hacia arriba */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Sombra suave */
 }
 
+/* Cuerpo interno de la tarjeta */
 .card-body {
-    padding: 1.5rem;
-    position: relative;
+    padding: 1.5rem; /* Relleno cómodo */
+    position: relative; /* Para posicionamientos internos si se necesitan */
 }
 
+/* Título de la tarjeta */
 .card-title {
-    font-size: 1.3rem;
-    color: #ffc107;
-    margin-bottom: 1rem;
+    font-size: 1.3rem; /* Tamaño visible */
+    color: #ffc107; /* Amarillo dorado */
+    margin-bottom: 1rem; /* Espacio inferior */
 }
 
+/* Texto dentro de la tarjeta */
 .card-text {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.5;
+    font-size: 1rem; /* Tamaño estándar */
+    color: #444; /* Gris oscuro */
+    line-height: 1.5; /* Espaciado entre líneas */
 }
 
+/* Último párrafo en card-body con estilo especial */
 .card-body p:last-child {
-    font-style: italic;
-    font-size: 0.95rem;
-    color: #888;
-    text-align: right;
+    font-style: italic; /* Cursiva */
+    font-size: 0.95rem; /* Ligeramente más pequeño */
+    color: #888; /* Gris suave */
+    text-align: right; /* Alineado a la derecha */
 }
 
-/* Estrellas con emojis */
+/* Estrellas decorativas antes del título */
 .card-title::before {
-    content: "★★★★★";
-    font-size: 1.4rem;
-    color: #ffc107;
-    display: block;
+    content: "★★★★★"; /* Cinco estrellas como texto */
+    font-size: 1.4rem; /* Tamaño grande */
+    color: #ffc107; /* Amarillo dorado */
+    display: block; /* Que ocupe toda la línea */
 }
 
 /* Carrusel de artistas */
 #carouselArtistas .carousel-inner {
     position: relative;
-    height: 600px;
+    height: 600px; /* Alto fijo para el carrusel */
 }
 
 #carouselArtistas .carousel-inner img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    width: 100%; /* Imagen ocupa todo el ancho */
+    height: 100%; /* Imagen ocupa todo el alto */
+    object-fit: contain; /* Ajusta la imagen sin recortar */
 }
 
-/* Responsivo */
+/* Estilos responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
     h1 {
-        font-size: 2.2rem;
+        font-size: 2.2rem; /* Tamaño menor en móviles */
     }
 
     .navbar .btn {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem; /* Texto de botones más pequeño */
+        padding: 0.4rem 0.8rem; /* Menor relleno */
     }
 
     .card-body {
-        padding: 1rem;
+        padding: 1rem; /* Menor relleno en tarjetas */
     }
 
     .card-title {
-        font-size: 1.1rem;
+        font-size: 1.1rem; /* Títulos más pequeños */
     }
 
     #carouselArtistas .carousel-inner {
-        height: 450px;
+        height: 450px; /* Alto menor en pantallas pequeñas */
     }
 }

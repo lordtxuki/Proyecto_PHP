@@ -1,60 +1,69 @@
+/* Reinicio y configuración base para todos los elementos */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    box-sizing: border-box; /* Para que padding y borde no aumenten el tamaño total */
+    font-family: 'Arial', sans-serif; /* Fuente base */
 }
 
+/* Estilo para el body con fondo degradado y centrado de contenido */
 body {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2); /* Fondo degradado morado-azul */
+    display: flex; /* Flexbox para centrar */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    height: 100vh; /* Altura completa de la ventana */
+    padding: 10px; /* Pequeño relleno para evitar pegado a bordes */
 }
 
+/* Contenedor blanco del formulario con sombra y bordes redondeados */
 .contenedor {
     background: white;
     padding: 40px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 500px; /* Máximo ancho para que no se expanda mucho */
+    text-align: center; /* Centra textos dentro */
 }
 
+/* Formulario organizado en columna con separación entre campos */
 .formulario {
     display: flex;
     flex-direction: column;
-    gap: 35px; 
+    gap: 35px; /* Espacio vertical entre los campos */
 }
 
+/* Cada campo alineado a la izquierda */
 .campo {
     text-align: left;
 }
 
+/* Etiquetas de los inputs */
 label {
-    display: block;
+    display: block; /* Que ocupe toda la línea */
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 8px; /* Espacio debajo de la etiqueta */
     font-size: 14px;
-    color: #555;
+    color: #555; /* Gris medio */
 }
 
+/* Inputs y selects con ancho completo, borde y padding */
 input, select {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc; /* Borde gris claro */
     border-radius: 5px;
     font-size: 14px;
 }
 
+/* Cambios al enfocar un input o select */
 input:focus, select:focus {
-    border-color: #667eea;
-    outline: none;
+    border-color: #667eea; /* Cambio a color azul del fondo */
+    outline: none; /* Elimina el outline por defecto */
 }
 
+/* Botón principal con fondo azul y texto blanco */
 .boton {
     background: #667eea;
     color: white;
@@ -63,17 +72,20 @@ input:focus, select:focus {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    width: 100%;
+    width: 100%; /* Botón ocupa todo el ancho */
 }
 
+/* Efecto hover para el botón */
 .boton:hover {
-    background: #5563c1;
+    background: #5563c1; /* Azul más oscuro */
 }
 
+/* Mensaje de aviso con margen inferior para separarlo */
 #aviso_pago {
     margin-bottom: 15px;
 }
 
+/* Contenedor para datos de pago con fondo claro y padding */
 #datos_pago {
     padding: 15px;
     background: #f9f9f9;

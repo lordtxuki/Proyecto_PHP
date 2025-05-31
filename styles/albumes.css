@@ -1,78 +1,163 @@
 body {
-    background-color: #f0f9ff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: #f0f9ff; /* Fondo azul muy claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+    margin: 0; /* Sin margen externo */
+    padding: 0; /* Sin padding */
+    color: #2d3748; /* Color base de texto (gris oscuro azulado) */
 }
 
+/* Título centrado para secciones con clase text-center */
 h2.text-center {
-    text-align: center;
-    margin-top: 20px;
-    color: #2c5282;
+    text-align: center; /* Centrar texto */
+    margin: 20px 0; /* Separación arriba y abajo */
+    color: #2c5282; /* Azul oscuro */
+    font-weight: 600; /* Negrita semiblanda */
 }
 
+/* Contenedor principal centrado con ancho máximo */
 .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+    max-width: 900px; /* Máximo ancho */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 20px; /* Espacio interno */
 }
 
+/* Tarjeta que contiene un álbum */
 .album-card {
-    background-color: #fff;
-    border: 1px solid #cbd5e0;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #cbd5e0; /* Borde gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    margin-bottom: 20px; /* Separación inferior */
+    overflow: hidden; /* Oculta cualquier contenido que sobresalga */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Sombra suave */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transiciones suaves para animaciones */
 }
 
+/* Efecto hover para la tarjeta: eleva la tarjeta y aumenta sombra */
+.album-card:hover {
+    transform: translateY(-5px); /* Desplazamiento hacia arriba */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+}
+
+/* Cabecera de la tarjeta, con imagen y texto */
 .card-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 15px;
-    border-bottom: 1px solid #e2e8f0;
+    display: flex; /* Contenido en línea flexible */
+    align-items: center; /* Centrar verticalmente */
+    gap: 15px; /* Separación entre elementos */
+    padding: 15px 20px; /* Espacio interno */
+    border-bottom: 1px solid #e2e8f0; /* Línea divisoria */
 }
 
+/* Imagen dentro de la cabecera */
 .card-header img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 6px;
+    width: 80px; /* Ancho fijo */
+    height: 80px; /* Alto fijo */
+    object-fit: cover; /* La imagen cubre el área sin distorsión */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #e2e8f0; /* Borde gris claro */
 }
 
+/* Contenedor para los textos dentro de la cabecera */
+.card-header div {
+    display: flex;
+    flex-direction: column; /* Texto en columna */
+}
+
+/* Título del álbum dentro de la cabecera */
+.card-header strong {
+    font-size: 1.1rem; /* Tamaño un poco mayor */
+    color: #2c5282; /* Azul oscuro */
+}
+
+/* Texto pequeño, como el artista o año */
+.card-header small {
+    font-size: 0.9rem; /* Tamaño menor */
+    color: #4a5568; /* Gris azulado */
+}
+
+/* Cuerpo de la tarjeta con lista de canciones u otros detalles */
 .card-body {
-    padding: 15px;
+    padding: 15px 20px; /* Espacio interno */
 }
 
+/* Lista sin estilo de viñetas ni márgenes */
 .card-body ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 15px 0; /* Espacio inferior */
 }
 
+/* Elementos individuales de la lista */
 .card-body li {
-    padding: 6px 0;
-    border-bottom: 1px solid #edf2f7;
-    font-size: 15px;
+    padding: 8px 0; /* Espaciado vertical */
+    border-bottom: 1px solid #edf2f7; /* Línea separadora clara */
+    font-size: 0.95rem; /* Tamaño de texto */
+    color: #4a5568; /* Gris azulado */
 }
 
+/* Quitar el borde del último elemento */
+.card-body li:last-child {
+    border-bottom: none;
+}
+
+/* Botones pequeños, para acciones como "Ver más" */
 .btn-small {
-    background-color: #4299e1;
-    color: white;
-    padding: 8px 16px;
-    font-size: 16px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
+    background-color: #4299e1; /* Azul */
+    color: #ffffff; /* Texto blanco */
+    padding: 8px 16px; /* Espacio interno */
+    font-size: 0.95rem; /* Tamaño texto */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 6px; /* Bordes redondeados */
+    display: inline-block; /* Comportamiento de enlace en línea con bloque */
     text-align: center;
+    margin-right: 10px; /* Separación derecha */
+    transition: background-color 0.2s; /* Transición suave */
 }
 
+/* Hover para botones pequeños */
 .btn-small:hover {
-    background-color: #3182ce;
+    background-color: #3182ce; /* Azul más oscuro */
+    color: #ffffff;
 }
 
-.btn-container {
+/* Centrado para el botón de volver */
+.text-center-volver {
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0;
+}
+
+/* Botón para volver a la página anterior */
+.btn-volver {
+    background-color: #4a5568; /* Gris azulado oscuro */
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background-color 0.2s;
+}
+
+/* Hover para botón volver */
+.btn-volver:hover {
+    background-color: #2d3748; /* Gris más oscuro */
+    color: #ffffff;
+}
+
+/* Adaptabilidad para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* En móvil, apilar verticalmente el contenido de cabecera */
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* Separar imagen del texto en móvil */
+    .card-header img {
+        margin-bottom: 10px;
+    }
+    
+    /* Botones pequeños en móvil con margen abajo para separar */
+    .btn-small {
+        margin-bottom: 10px;
+    }
 }
