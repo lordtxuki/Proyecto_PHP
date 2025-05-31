@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Listado de artistas
-$res = $conexion->query("SELECT id_artista, nombre, imagen FROM rtistas ORDER BY nombre ASC");
+$res = $conexion->query("SELECT id_artista, nombre, imagen FROM artistas ORDER BY nombre ASC");
 ?>
 
 <!DOCTYPE html>

@@ -63,7 +63,7 @@ body {
 /* Título centrado */
 h2.text-center {
     text-align: center;
-    color: #fff;
+    color: #4CAF50;
     font-size: 2.2rem;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);

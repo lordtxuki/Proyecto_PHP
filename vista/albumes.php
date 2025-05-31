@@ -21,6 +21,7 @@ $albumes = AlbumModelo::obtenerTodos();
     <?php
     $ruta = $album['imagen_portada'];
     $existe = $ruta && file_exists('../' . $ruta);
+    $canciones = AlbumModelo::obtenerCanciones($album['id_album']);
     ?>
     <div class="album-card">
         <div class="card-header">
@@ -33,6 +34,16 @@ $albumes = AlbumModelo::obtenerTodos();
             <div>
                 <strong><?php echo htmlspecialchars($album['titulo']); ?></strong><br>
                 <small><?php echo htmlspecialchars($album['año_publicacion']); ?> – <?php echo htmlspecialchars($album['artista'] ?? 'Sin artista'); ?></small>
+
+                <?php if ($canciones): ?>
+                    <ul class="lista-canciones">
+                        <?php foreach ($canciones as $cancion): ?>
+                            <li><?php echo htmlspecialchars($cancion['titulo']); ?></li>
+                        <?php endforeach;?>
+                    </ul>
+                    <?php else: ?>
+                        <p class="sin-canciones">Este album no tiene canciones.</p>
+                    <?php endif; ?>
             </div>
         </div>
         <div class="card-body">

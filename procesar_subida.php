@@ -11,23 +11,15 @@ if (!isset($_SESSION['usuario_id'])) {
 
 $id_usuario = $_SESSION['usuario_id'];
 
-// 1. Determinar rol: admin o premium
-$rol = null;
-$stmt = $conexion->prepare("SELECT 1 FROM usuario_admin WHERE id_usuario = ?");
-$stmt->bind_param("i", $id_usuario);
+// Verificar si el usuario es premium
+
+$stmt = $conexion-> prepare("SELECT 1 FROM usuario_premium WHERE id_usuario = ?");
+$stmt-> bind_param("i",$id_usuario);
 $stmt->execute();
-if ($stmt->get_result()->num_rows > 0) {
-    $rol = 'admin';
-} else {
-    $stmt = $conexion->prepare("SELECT 1 FROM usuario_premium WHERE id_usuario = ?");
-    $stmt->bind_param("i", $id_usuario);
-    $stmt->execute();
-    if ($stmt->get_result()->num_rows > 0) {
-        $rol = 'premium';
-    }
-}
-if (!$rol) {
-    die("No tienes permisos para subir contenido.");
+$resultado = $stmt->get_result();
+
+if($resultado->num_rows === 0){
+    die("Solo los usuarios premium pueden subir canciones.");
 }
 
 // 2. Recoger datos de POST y archivos
@@ -79,7 +71,7 @@ if ($id_album && $titulo_cancion && $rutaCancion) {
     if (!$stmt->execute()) {
         die("Error al insertar canción: " . $stmt->error);
     }
-    header("Location: vista/{$rol}.php");
+    header("Location: vista/premium.php");
     exit();
 }
 
@@ -110,7 +102,7 @@ if ($titulo_album && $id_artista && $titulo_cancion && $rutaCancion) {
         }
 
         $conexion->commit();
-        header("Location: vista/{$rol}.php");
+        header("Location: vista/premium.php");
         exit();
     } catch (Exception $e) {
         $conexion->rollback();
