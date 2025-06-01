@@ -13,7 +13,6 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 
-// Guardo el id del usuario para usarlo en las operaciones
 $id_usuario = $_SESSION['usuario_id'];
 
 // Si recibo datos por POST para añadir una canción a favoritos y el id es válido
@@ -27,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_cancion']) && is_n
 
 // Recibo la acción, tipo y id por GET para agregar o quitar favoritos de otros tipos (álbum, artista, playlist)
 $accion = $_GET['accion'] ?? null;
-$tipo = $_GET['tipo'] ?? null;
-$id = $_GET['id'] ?? null;
+$tipo   = $_GET['tipo']   ?? null;
+$id     = $_GET['id']     ?? null;
 
 // Si los datos son correctos y válidos, realizo la acción correspondiente
 if ($accion && $tipo && is_numeric($id)) {

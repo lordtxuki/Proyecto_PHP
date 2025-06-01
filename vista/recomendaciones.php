@@ -17,7 +17,7 @@ if (!$id_usuario) {
 }
 
 // Usamos el modelo para obtener las recomendaciones para este usuario
-$recomendaciones = RecomendacionModelo::obtenerRecomendaciones($id_usuario);
+$recomendaciones = recomendacionModelo::obtenerRecomendaciones($id_usuario);
 ?>
 
 <!DOCTYPE html>

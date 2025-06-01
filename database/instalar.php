@@ -188,9 +188,6 @@ $sql = "CREATE TABLE IF NOT EXISTS playlists_favoritas (
 )";
 $conn->query($sql);
 
-
-$conn->query($sql);
-
 $conn->close();
 
 echo "Tablas creadas correctamente.";

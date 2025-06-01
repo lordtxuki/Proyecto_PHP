@@ -4,33 +4,44 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Cargo los archivos con las funciones para manejar álbumes y favoritos
-require_once '../modelo/albumModelo.php';
+// Cargo los modelos necesarios: uno para seguir/dejar de seguir, otro para favoritos
+require_once '../modelo/artistaModelo.php';
 require_once '../modelo/favoritoModelo.php';
 
-// Compruebo si hay un usuario logueado, si no, lo envío al login para que inicie sesión
+// Si no hay un usuario logueado, redirigimos al login
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: ../vista/vista_login.php");
     exit();
 }
 
-// Guardo el id del usuario en una variable para usarla después en las funciones
-$id_usuario = $_SESSION['usuario_id'];
+$id_usuario = $_SESSION['usuario_id'];    // ID del usuario que hace la acción
+$accion     = $_GET['accion'] ?? '';       // Puede ser: 'seguir', 'dejar', 'favorito', 'quitar_favorito'
+$id_artista = $_GET['id'] ?? null;         // ID del artista sobre el que se actúa
 
-// Recojo la acción que llega por la URL (por ejemplo, añadir o quitar favorito)
-$accion = $_GET['accion'] ?? '';
-// Recojo el id que llega por la URL, que debería ser el id del álbum a modificar
-$id = $_GET['id'] ?? null;
-
-// Si la acción es 'favorito' y el id es válido, llamo a la función para añadir a favoritos
-if ($accion === 'favorito' && $id) {
-    FavoritoModelo::agregar($id_usuario, $id, 'album');
-}
-// Si la acción es 'quitar_favorito' y el id es válido, llamo a la función para quitar de favoritos
-elseif ($accion === 'quitar_favorito' && $id) {
-    FavoritoModelo::quitar($id_usuario, $id, 'album');
+// Comprobamos que el ID del artista venga y sea numérico
+if (!is_numeric($id_artista)) {
+    header("Location: ../vista/artistas.php");
+    exit();
 }
 
-// Después de hacer la operación, redirijo a la página de álbumes para ver los cambios
-header("Location: ../vista/albumes.php");
+// Dependiendo de la acción (seguir, dejar, favorito, quitar_favorito), llamamos al modelo adecuado
+if ($accion === 'seguir') {
+    // El usuario empieza a seguir a este artista (inserta en artistas_seguidos)
+    ArtistaModelo::seguir($id_usuario, $id_artista);
+
+} elseif ($accion === 'dejar') {
+    // El usuario deja de seguir a este artista
+    ArtistaModelo::dejarSeguir($id_usuario, $id_artista);
+
+} elseif ($accion === 'favorito') {
+    // El usuario marca este artista como favorito (inserta en artistas_favoritos)
+    FavoritoModelo::agregar($id_usuario, $id_artista, 'artista');
+
+} elseif ($accion === 'quitar_favorito') {
+    // El usuario quita este artista de favoritos
+    FavoritoModelo::quitar($id_usuario, $id_artista, 'artista');
+}
+
+// Después de procesar la acción, volvemos a la lista de artistas
+header("Location: ../vista/artistas.php");
 exit();
