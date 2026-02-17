@@ -1,79 +1,112 @@
+/* ====== FONDO GENERAL ====== */
+body {
+    background: linear-gradient(135deg, #4361ee, #3a0ca3);
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 15px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* ====== CONTENEDOR FORM ====== */
 form {
-    width: 400px; /* Ancho fijo del formulario */
-    margin: 30px auto; /* Margen arriba y abajo y centrado horizontal */
-    padding: 20px; /* Espacio interno */
-    border: 2px solid #ccc; /* Borde gris claro */
-    border-radius: 15px; /* Bordes redondeados */
-    background-color: #f9f9f9; /* Fondo casi blanco */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave */
-    font-family: Arial, sans-serif; /* Fuente */
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h2 {
-    text-align: center; /* Centrar título */
-    font-size: 24px; /* Tamaño del texto */
-    color: #333; /* Color gris oscuro */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3a0ca3;
 }
 
+/* ====== LABELS ====== */
 label {
-    font-weight: bold; /* Negrita */
-    display: block; /* Ocupa toda la línea */
-    margin-top: 15px; /* Espacio arriba */
-    color: #444; /* Color gris */
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+    color: #444;
 }
 
+/* ====== INPUTS ====== */
 input[type="text"],
-input[type="file"] {
-    width: 100%; /* Ocupa todo el ancho del contenedor */
-    padding: 8px; /* Espacio interno */
-    margin-top: 5px; /* Espacio arriba */
-    border: 1px solid #ccc; /* Borde gris claro */
-    border-radius: 8px; /* Bordes redondeados */
-    font-size: 14px; /* Tamaño de texto */
-    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+input[type="file"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
 }
 
+input:focus,
+select:focus {
+    border-color: #4361ee;
+    outline: none;
+    box-shadow: 0 0 5px rgba(67, 97, 238, 0.4);
+}
+
+/* ====== BOTÓN PRINCIPAL ====== */
 button {
-    margin-top: 20px; /* Separación arriba */
-    padding: 10px 15px; /* Espacio interno */
-    background-color: #4CAF50; /* Verde */
-    color: white; /* Texto blanco */
-    border: none; /* Sin borde */
-    border-radius: 8px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño texto */
-    cursor: pointer; /* Cursor tipo mano */
-    width: 100%; /* Ancho completo */
+    margin-top: 25px;
+    padding: 12px;
+    width: 100%;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(90deg, #4361ee, #3a0ca3);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049; /* Verde más oscuro al pasar el cursor */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(58, 12, 163, 0.4);
 }
 
-a.btn.btn-secondary.mt-3 {
-    display: block; /* Elemento bloque */
-    width: fit-content; /* Ancho ajustado al contenido */
-    margin: 2rem auto 0 auto; /* Margen arriba y centrado */
-    padding: 10px 25px; /* Espacio interno */
-    background-color: #007BFF; /* Azul azulado */
-    color: white; /* Texto blanco */
-    border-radius: 8px; /* Bordes redondeados */
-    text-align: center; /* Texto centrado */
-    text-decoration: none; /* Sin subrayado */
-    font-size: 1rem; /* Tamaño de texto */
-    box-shadow: 0 3px 8px rgba(0, 123, 255, 0.4); /* Sombra azul */
-    transition: background-color 0.3s ease; /* Transición suave para cambio de color */
-    cursor: pointer; /* Cursor tipo mano */
+/* ====== BOTÓN VOLVER ====== */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    background: #7209b7;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
-a.btn.btn-secondary.mt-3:hover {
-    background-color: #6a0dad !important; /* Morado vibrante al pasar el cursor */
+a:hover {
+    background: #560bad;
 }
 
-body {
-    background: linear-gradient(135deg, #a0c4ff, #4361ee); /* Fondo degradado azul */
-    min-height: 100vh; /* Altura mínima para pantalla completa */
-    margin: 0; /* Sin margen */
-    padding: 40px 0; /* Separación vertical */
-    font-family: Arial, sans-serif; /* Fuente */
-    color: #222; /* Color de texto gris oscuro */
+/* ====== RESPONSIVE ====== */
+@media (max-width: 480px) {
+    form {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
 }

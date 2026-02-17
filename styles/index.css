@@ -145,3 +145,133 @@ p.text-center {
         height: 450px; /* Alto menor en pantallas pequeñas */
     }
 }
+
+body.modo-oscuro {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Navbar oscura */
+body.modo-oscuro .navbar {
+    background-color: #1e1e1e !important;
+}
+
+/* Container transparente */
+body.modo-oscuro .container {
+    background-color: transparent !important;
+}
+
+/* Cards blancas en modo oscuro */
+body.modo-oscuro .card {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Texto dentro de cards */
+body.modo-oscuro .card-text {
+    color: #333 !important;
+}
+
+body.modo-oscuro .card-body p:last-child {
+    color: #666 !important;
+}
+
+/* Botón Registrarse */
+body.modo-oscuro .btn-light {
+    background-color: #2c2c2c !important;
+    color: #ffffff !important;
+    border: 1px solid #444 !important;
+}
+/* Texto principal en modo oscuro */
+body.modo-oscuro h1 {
+    color: #ffffff !important;
+}
+
+/* Párrafo principal en modo oscuro */
+body.modo-oscuro .text-center {
+    color: #e0e0e0 !important;
+}
+
+/* ========================================= */
+/*        AJUSTES RESPONSIVE GENERALES       */
+/* ========================================= */
+
+/* Para que las imágenes nunca se salgan */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Contenedores más flexibles */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* ========================================= */
+/*              TABLETS                      */
+/* ========================================= */
+
+@media (max-width: 992px) {
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    #carouselArtistas .carousel-inner {
+        height: 450px;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+/* ========================================= */
+/*              MÓVILES                      */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    p.text-center {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .navbar .btn {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    #carouselArtistas .carousel-inner {
+        height: 300px;
+    }
+
+    .card {
+        border-radius: 15px;
+    }
+}
+
+/* ========================================= */
+/*          MÓVILES PEQUEÑOS                 */
+/* ========================================= */
+
+@media (max-width: 576px) {
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    #carouselArtistas .carousel-inner {
+        height: 250px;
+    }
+}

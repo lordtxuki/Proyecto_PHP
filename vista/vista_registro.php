@@ -149,62 +149,74 @@ unset($_SESSION['old'], $_SESSION['error']);
                             style="display: <?php echo ($tipo_cuenta === 'premium') ? 'block' : 'none'; ?>;"
                         >
                             <h5 class="text-center">Datos de Pago</h5>
-                            <div class="mb-3">
-                                <label class="form-label">Tarjeta de Crédito</label>
-                                <!-- Input para número de tarjeta con validación de 16 dígitos -->
-                                <input
-                                    type="text"
-                                    name="tarjeta"
-                                    class="form-control"
-                                    value="<?php echo htmlspecialchars($tarjeta); ?>"
-                                    placeholder="Número de tarjeta"
-                                    pattern="[0-9]{16}"
-                                    maxlength="16"
-                                />
-                                <small class="form-text text-muted">
-                                    La tarjeta solo será verificada como correcta con 16 números.
-                                </small>
+
+                            <!-- TARJETA -->
+                            <div id="bloqueTarjeta">
+                                <div class="mb-3">
+                                    <label class="form-label">Tarjeta de Crédito</label>
+                                    <input
+                                        type="text"
+                                        name="tarjeta"
+                                        id="tarjeta"
+                                        class="form-control"
+                                        value="<?php echo htmlspecialchars($tarjeta); ?>"
+                                        placeholder="Número de tarjeta"
+                                        maxlength="19"
+                                        inputmode="numeric"
+                                    />
+                                    <small class="form-text text-muted">
+                                        16 números sin espacios.
+                                    </small>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">Vencimiento</label>
+                                    <input
+                                        type="month"
+                                        name="vencimiento"
+                                        id="vencimiento"
+                                        class="form-control"
+                                        value="<?php echo htmlspecialchars($vencimiento); ?>"
+                                    />
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label">CVV</label>
+                                    <input
+                                        type="text"
+                                        name="cvv"
+                                        id="cvv"
+                                        class="form-control"
+                                        value="<?php echo htmlspecialchars($cvv); ?>"
+                                        maxlength="4"
+                                        pattern="[0-9]{3,4}"
+                                    />
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Vencimiento</label>
-                                <!-- Input para fecha de vencimiento de la tarjeta -->
-                                <input
-                                    type="month"
-                                    name="vencimiento"
-                                    class="form-control"
-                                    value="<?php echo htmlspecialchars($vencimiento); ?>"
-                                />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">CVV</label>
-                                <!-- Input para CVV con patrón de 3 o 4 números -->
-                                <input
-                                    type="text"
-                                    name="cvv"
-                                    class="form-control"
-                                    value="<?php echo htmlspecialchars($cvv); ?>"
-                                    maxlength="4"
-                                    pattern="[0-9]{3,4}"
-                                />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Usuario PayPal</label>
-                                <!-- Input para correo PayPal -->
-                                <input
-                                    type="email"
-                                    name="paypal"
-                                    class="form-control"
-                                    value="<?php echo htmlspecialchars($paypal); ?>"
-                                    placeholder="Correo PayPal"
-                                />
+
+                            <hr>
+
+                            <!-- PAYPAL -->
+                            <div id="bloquePaypal">
+                                <div class="mb-3">
+                                    <label class="form-label">Usuario PayPal</label>
+                                    <input
+                                        type="email"
+                                        name="paypal"
+                                        id="paypal"
+                                        class="form-control"
+                                        value="<?php echo htmlspecialchars($paypal); ?>"
+                                        placeholder="Correo PayPal"
+                                    />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Botón para enviar el formulario -->
-                <div class="mb-3 text-center">
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+                        <!-- Botón para enviar el formulario -->
+                        <div class="mb-3 text-center">
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </div>
+                    </div>
                 </div>
             </form>
 
@@ -245,5 +257,7 @@ unset($_SESSION['old'], $_SESSION['error']);
             tipoCuenta.addEventListener('change', toggleDatosPago);
         });
     </script>
+
+    <script src="../assets/js/validaciones_registro.js"></script>
 </body>
 </html>

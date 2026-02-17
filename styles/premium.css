@@ -65,3 +65,314 @@ main {
     padding: 0 15px; /* Padding horizontal */
     font-weight: bold; /* Texto en negrita */
 }
+
+/* ===============================
+    GRID ÚLTIMOS ÁLBUMES
+=================================*/
+
+.grid-albumes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+    gap: 25px;
+    margin-top: 25px;
+    max-width: 900px; /* evita que se estiren demasiado */
+}
+
+
+.card-album {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+
+.card-album:hover {
+    transform: scale(1.05);
+}
+
+.card-album img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+.card-album h3 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+}
+
+.card-album p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* =============================== */
+/* BOTÓN CAMBIO DE TEMA */
+/* =============================== */
+
+.btn-tema {
+    margin-left: auto; 
+    padding: 8px 16px;
+    font-size: 18px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: white;
+}
+
+/* =============================== */
+/* MODO OSCURO */
+/* =============================== */
+
+body.modo-oscuro {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* HEADER */
+body.modo-oscuro header {
+    background-color: #1e1e1e;
+}
+
+/* NAV */
+body.modo-oscuro nav {
+    background-color: #1e1e1e;
+}
+
+/* Enlaces */
+body.modo-oscuro nav a {
+    color: #ffffff;
+}
+
+/* CONTENIDO */
+body.modo-oscuro main {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+/* GRID ÁLBUMES */
+body.modo-oscuro .card-album {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.modo-oscuro .card-album p {
+    color: #444;
+}
+
+/* Títulos */
+body.modo-oscuro h1,
+body.modo-oscuro h2,
+body.modo-oscuro h3 {
+    color: #ffffff;
+}
+/* ========================================= */
+/*          AJUSTES RESPONSIVE               */
+/* ========================================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ========================================= */
+/*              TABLET                       */
+/* ========================================= */
+
+@media (max-width: 992px) {
+
+    .grid-albumes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    main {
+        max-width: 95%;
+    }
+}
+
+/* ========================================= */
+/*               MÓVIL                       */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 1.6em;
+        padding: 0 10px;
+    }
+
+    nav .contenedor {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        display: block;
+    }
+
+    .grid-albumes {
+        grid-template-columns: 1fr;
+    }
+
+    .card-album img {
+        height: 180px;
+    }
+
+    main {
+        padding: 20px;
+    }
+}
+
+/* ========================================= */
+/*         MÓVILES PEQUEÑOS                  */
+/* ========================================= */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 1.4em;
+    }
+
+    .card-album img {
+        height: 150px;
+    }
+}
+
+/* ========================================= */
+/*            NAV RESPONSIVE                 */
+/* ========================================= */
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.boton-tema {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+/* ========================================= */
+/*              MODO MÓVIL                   */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-links.activo {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 8px 0;
+    }
+
+}
+
+/* =====================================================
+    CORRECCIÓN LEGIBILIDAD EN MODO OSCURO
+===================================================== */
+
+body.modo-oscuro.albumes main,
+body.modo-oscuro.recomendaciones main,
+body.modo-oscuro.playlists main {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Títulos */
+body.modo-oscuro.albumes h2,
+body.modo-oscuro.recomendaciones h2,
+body.modo-oscuro.playlists h2,
+body.modo-oscuro.albumes h3,
+body.modo-oscuro.recomendaciones h3,
+body.modo-oscuro.playlists h3 {
+    color: #000000 !important;
+}
+
+/* Párrafos */
+body.modo-oscuro.albumes p,
+body.modo-oscuro.recomendaciones p,
+body.modo-oscuro.playlists p {
+    color: #333333 !important;
+}
+/* =====================================================
+    FIX LEGIBILIDAD ULTIMOS ALBUMES EN MODO OSCURO
+===================================================== */
+
+body.modo-oscuro .grid-albumes,
+body.modo-oscuro .grid-albumes h2,
+body.modo-oscuro .grid-albumes h3,
+body.modo-oscuro .grid-albumes p {
+    color: #000000 !important;
+}
+/* =====================================================
+    FIX - TEXTO TARJETAS EN MODO OSCURO
+===================================================== */
+
+body.modo-oscuro .card-album h3,
+body.modo-oscuro .card-album p {
+    color: #000000 !important;
+}
+
+/* =====================================================
+    FIX REPRODUCTOR MODO OSCURO
+===================================================== */
+
+body.modo-oscuro.reproductor main {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Títulos */
+body.modo-oscuro.reproductor h2,
+body.modo-oscuro.reproductor h4,
+body.modo-oscuro.reproductor h5 {
+    color: #000000 !important;
+}
+
+/* List group (artistas y canciones) */
+body.modo-oscuro.reproductor .list-group-item {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-color: #dddddd !important;
+}
+
+/* Botones dentro del reproductor */
+body.modo-oscuro.reproductor .btn {
+    color: #000000 !important;
+}

@@ -168,10 +168,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 }
 
                 // Si todo fue bien, guardamos datos de sesión y redirigimos
-                if (empty($error)) {
-                    $_SESSION['id_usuario']  = $id_usuario;
-                    $_SESSION['usuario']     = $usuario;
-                    $_SESSION['tipo_cuenta'] = $tipo_cuenta;
+                    if (empty($error)) {
+
+                        $_SESSION['usuario_id']  = $id_usuario;
+
+                        $_SESSION['usuario']     = $usuario;
+                        $_SESSION['tipo_cuenta'] = $tipo_cuenta;
+
 
                     // Borramos datos temporales
                     unset($_SESSION['old'], $_SESSION['error']);

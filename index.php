@@ -12,7 +12,7 @@
     <!-- Enlace a tu hoja de estilos personalizada -->
     <link rel="stylesheet" href="styles/index.css">
 </head>
-<body class="bg-light">
+<body>
     <!-- Barra de navegación superior -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <!-- Contenedor fluido para que la barra ocupe todo el ancho -->
@@ -24,11 +24,14 @@
                 Musickaly
             </a>
             <!-- Contenedor con botones alineados a la derecha -->
-            <div class="d-flex ms-auto">
+            <div class="d-flex ms-auto align-items-center">
                 <!-- Botón para ir a la página de login con estilo outline -->
                 <a href="vista/vista_login.php" class="btn btn-outline-light me-2">Iniciar Sesión</a>
                 <!-- Botón para ir a la página de registro con fondo blanco -->
                 <a href="vista/vista_registro.php" class="btn btn-light">Registrarse</a>
+                <!-- Boton para cambiar de tema -->
+                <button id="toggleTema" class="btn btn-dark ms-2">🌙</button>
+
             </div>
         </div>
     </nav>
@@ -117,6 +120,7 @@
         </div>
     </div>
 
+    <script src="assets/js/tema.js"></script>
     <!-- Script de Bootstrap para que funcionen componentes como el carrusel -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

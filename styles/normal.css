@@ -18,7 +18,7 @@ header {
 header h1 {
     margin: 0; /* Sin margen */
     font-size: 2em; /* Tamaño de fuente grande */
-    color: white; /* Texto blanco (aunque ya está definido en header) */
+    color: white; /* Texto blanco */
     font-weight: bold; /* Texto en negrita */
 }
 
@@ -28,12 +28,21 @@ nav {
     padding: 10px 0; /* Espacio arriba y abajo */
 }
 
-/* Contenedor dentro de nav para centrar los enlaces */
-nav .contenedor {
-    display: flex; /* Usar flexbox */
-    justify-content: center; /* Centrar horizontalmente */
-    flex-wrap: wrap; /* Permitir que los enlaces bajen a la siguiente línea si no caben */
-    gap: 20px; /* Espacio entre los enlaces */
+/* Contenedor flex para separar menú y botón */
+.nav-flex {
+    display: flex;
+    justify-content: space-between; /* Separa izquierda y derecha */
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Enlaces agrupados */
+.menu-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 /* Enlaces del nav */
@@ -48,20 +57,341 @@ nav a:hover {
     text-decoration: underline; /* Subrayado */
 }
 
+/* BOTÓN CAMBIO DE TEMA */
+#toggleTema {
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
 /* Área principal de contenido */
 main {
     padding: 30px; /* Espacio interior */
     background-color: white; /* Fondo blanco */
-    max-width: 800px; /* Máximo ancho para que no sea muy ancho */
-    margin: 30px auto; /* Centrado horizontal y margen vertical */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave */
-    border-radius: 10px; /* Bordes redondeados */
+    max-width: 900px;
+    margin: 30px auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
 }
 
-/* Contenedor general para limitar ancho y dar margen lateral */
+/* Contenedor general */
 .contenedor {
     max-width: 800px;
-    margin: 0 auto; /* Centrar horizontalmente */
-    padding: 0 15px; /* Espaciado lateral */
-    font-weight: bold; /* Negrita en el texto dentro */
+    margin: 0 auto;
+    padding: 0 15px;
+    font-weight: bold;
+}
+
+/* ===============================
+    GRID ÚLTIMOS ÁLBUMES
+=================================*/
+
+.grid-albumes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+    max-width: 900px;
+}
+
+.card-album {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+
+.card-album:hover {
+    transform: scale(1.05);
+}
+
+.card-album img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card-album h3 {
+    margin: 10px 0 5px;
+    font-size: 16px;
+}
+
+.card-album p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* =============================== */
+/*            MODO OSCURO          */
+/* =============================== */
+
+body.modo-oscuro {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.modo-oscuro header {
+    background-color: #1e1e1e;
+}
+
+body.modo-oscuro nav {
+    background-color: #1e1e1e;
+}
+
+body.modo-oscuro nav a {
+    color: #ffffff;
+}
+
+body.modo-oscuro main {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.modo-oscuro .card-album {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+body.modo-oscuro .card-album p {
+    color: #cccccc;
+}
+
+/* ========================================= */
+/*          AJUSTES RESPONSIVE               */
+/* ========================================= */
+
+/* Evita que las imágenes rompan el diseño */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ========================================= */
+/*               TABLET                      */
+/* ========================================= */
+
+@media (max-width: 992px) {
+
+    .grid-albumes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    main {
+        max-width: 95%;
+    }
+}
+
+/* ========================================= */
+/*               MÓVIL                       */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 1.6em;
+        padding: 0 10px;
+    }
+
+    nav .contenedor {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav a {
+        display: block;
+    }
+
+    .grid-albumes {
+        grid-template-columns: 1fr;
+    }
+
+    .card-album img {
+        height: 180px;
+    }
+
+    main {
+        padding: 20px;
+    }
+}
+
+/* ========================================= */
+/*         MÓVILES PEQUEÑOS                  */
+/* ========================================= */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 1.4em;
+    }
+
+    .card-album img {
+        height: 150px;
+    }
+}
+
+/* ========================================= */
+/*            NAV RESPONSIVE                 */
+/* ========================================= */
+
+.nav-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botón hamburguesa oculto en escritorio */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Contenedor enlaces */
+.nav-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Botón tema */
+.boton-tema {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+/* ========================================= */
+/*              MODO MÓVIL                   */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-links.activo {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 8px 0;
+    }
+}
+
+
+
+.seccion-artistas {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.seccion-artistas h2 {
+    margin: 0;
+}
+
+.artista-card {
+    background-color: #cfe3cf;
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.boton-volver {
+    align-self: flex-start;
+}
+
+/* En móvil se apilan correctamente */
+@media (max-width: 768px) {
+
+    .artista-card {
+        max-width: 100%;
+    }
+
+}
+
+/* =====================================================
+    CORRECCIÓN LEGIBILIDAD EN MODO OSCURO
+    Para albumes, recomendaciones y playlists
+===================================================== */
+
+body.modo-oscuro.albumes main,
+body.modo-oscuro.recomendaciones main,
+body.modo-oscuro.playlists main {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Títulos */
+body.modo-oscuro.albumes h2,
+body.modo-oscuro.recomendaciones h2,
+body.modo-oscuro.playlists h2,
+body.modo-oscuro.albumes h3,
+body.modo-oscuro.recomendaciones h3,
+body.modo-oscuro.playlists h3 {
+    color: #000000 !important;
+}
+
+/* Párrafos */
+body.modo-oscuro.albumes p,
+body.modo-oscuro.recomendaciones p,
+body.modo-oscuro.playlists p {
+    color: #333333 !important;
+}
+/* =====================================================
+    FIX LEGIBILIDAD ULTIMOS ALBUMES EN MODO OSCURO
+===================================================== */
+
+body.modo-oscuro .grid-albumes,
+body.modo-oscuro .grid-albumes h2,
+body.modo-oscuro .grid-albumes h3,
+body.modo-oscuro .grid-albumes p {
+    color: #000000 !important;
+}
+
+/* =====================================================
+    FIX REPRODUCTOR MODO OSCURO
+===================================================== */
+
+body.modo-oscuro.reproductor main {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Títulos */
+body.modo-oscuro.reproductor h2,
+body.modo-oscuro.reproductor h4,
+body.modo-oscuro.reproductor h5 {
+    color: #000000 !important;
+}
+
+/* List group */
+body.modo-oscuro.reproductor .list-group-item {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-color: #dddddd !important;
+}
+
+/* Botones */
+body.modo-oscuro.reproductor .btn {
+    color: #000000 !important;
 }

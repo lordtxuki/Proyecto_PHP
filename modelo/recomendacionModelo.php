@@ -1,45 +1,57 @@
 <?php
-// Incluye el archivo donde se hace la conexión a la base de datos
 require_once '../controlador/conexion.php';
 
-// Creamos una clase llamada RecomendacionModelo
 class RecomendacionModelo {
 
-    // Esta función va a obtener las recomendaciones para un usuario en concreto
     public static function obtenerRecomendaciones($id_usuario) {
-        // Usamos la variable de conexión a la base de datos que ya estaba creada
         global $conexion;
 
-        // 1) Buscamos los artistas que sigue el usuario
-        $sql = "SELECT id_artista FROM artistas_seguidos WHERE id_usuario = $id_usuario";
-        $res = $conexion->query($sql); // Ejecutamos la consulta
+        //  Obtener artistas seguidos
+        $stmt = $conexion->prepare("
+            SELECT id_artista 
+            FROM artistas_seguidos 
+            WHERE id_usuario = ?
+        ");
+        $stmt->bind_param("i", $id_usuario);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
 
-        // Guardamos los IDs de los artistas en un array
         $artistas = [];
-        while ($fila = $res->fetch_assoc()) {
-            $artistas[] = $fila['id_artista']; // Añadimos cada ID al array
+        while ($fila = $resultado->fetch_assoc()) {
+            $artistas[] = $fila['id_artista'];
         }
 
-        // Si el usuario no sigue a ningún artista, no recomendamos nada
-        if (empty($artistas)) return [];
+        if (empty($artistas)) {
+            return [];
+        }
 
-        // Convertimos el array de IDs en una lista separada por comas (ej: 2,4,5)
-        $ids = implode(',', $artistas);
+        $recomendaciones = [];
 
-        // 2) Buscamos los álbumes de esos artistas
-        $sql2 = "
-            SELECT a.*, ar.nombre AS artista, a.imagen_portada
-            FROM Albumes a
-            JOIN Artistas ar ON a.id_artista = ar.id_artista
-            WHERE a.id_artista IN ($ids)
-            ORDER BY a.año_publicacion DESC
-            LIMIT 10
-        ";
+        //  Obtener hasta 3 álbumes por cada artista seguido
+        foreach ($artistas as $id_artista) {
 
-        // Ejecutamos la segunda consulta
-        $res2 = $conexion->query($sql2);
+            $stmt2 = $conexion->prepare("
+                SELECT a.*, ar.nombre AS artista
+                FROM Albumes a
+                JOIN Artistas ar ON a.id_artista = ar.id_artista
+                WHERE a.id_artista = ?
+                ORDER BY a.año_publicacion DESC
+                LIMIT 3
+            ");
 
-        // Devolvemos todos los resultados como un array asociativo
-        return $res2->fetch_all(MYSQLI_ASSOC);
+            $stmt2->bind_param("i", $id_artista);
+            $stmt2->execute();
+            $res2 = $stmt2->get_result();
+
+            while ($fila2 = $res2->fetch_assoc()) {
+                $recomendaciones[] = $fila2;
+            }
+        }
+
+        // Mezclar resultados para que no salgan agrupados
+        shuffle($recomendaciones);
+
+        //  Limitar a máximo 10 recomendaciones
+        return array_slice($recomendaciones, 0, 10);
     }
 }

@@ -66,7 +66,9 @@ $conn->query($sql);
 $sql = "CREATE TABLE IF NOT EXISTS Artistas (
     id_artista INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    imagen VARCHAR(255) NOT NULL DEFAULT 'uploads/default_artist.jpg'
+    imagen VARCHAR(255) NOT NULL DEFAULT 'uploads/default_artist.jpg',
+    id_usuario INT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE
 )";
 $conn->query($sql);
 

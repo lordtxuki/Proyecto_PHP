@@ -1,131 +1,137 @@
-body {
-    background: linear-gradient(135deg, #667eea, #764ba2); /* degradado diagonal de azul a morado */
-    font-family: Arial, sans-serif; /* fuente general */
-    margin: 0; /* sin margen externo */
-    padding: 2rem 0; /* espacio arriba y abajo */
-    color: #333; /* color texto base */
+/* ===== FONDO GENERAL ===== */
+body.fondo-artistas {
+    background: linear-gradient(135deg, #dbeafe, #e9d5ff);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* Contenedor principal centrado, fondo blanco y sombra */
+/* ===== CONTENEDOR ===== */
 .container {
-    max-width: 1100px; /* ancho máximo */
-    margin: 0 auto; /* centrado horizontal */
-    background: #fff; /* fondo blanco */
-    border-radius: 12px; /* bordes redondeados */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* sombra sutil */
-    padding: 2rem; /* relleno interior */
-    display: grid; /* uso de grid layout */
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* columnas adaptativas */
-    gap: 1.5rem; /* separación entre elementos */
+    max-width: 1200px;
 }
 
-/* Tarjeta de artista con fondo suave y sombra */
+/* ===== TÍTULO ===== */
+.titulo-artistas {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #3730a3;
+}
+
+/* ===== TARJETAS ===== */
 .artist-card {
-    background: #f9f9f9; /* fondo claro */
-    border-radius: 10px; /* bordes redondeados */
-    padding: 1rem; /* espacio interno */
-    text-align: center; /* texto centrado */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra ligera */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* transición suave */
-    cursor: pointer; /* cursor de mano */
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
 }
 
-/* Efecto hover: eleva y aumenta sombra */
 .artist-card:hover {
-    transform: translateY(-6px); /* sube la tarjeta */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* sombra más marcada */
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.15);
 }
 
-/* Imagen de artista */
+/* ===== IMAGEN ===== */
 .artist-card img {
-    width: 100%; /* ocupa todo el ancho del contenedor */
-    height: 150px; /* altura fija */
-    object-fit: cover; /* recorta para cubrir sin deformar */
-    border-radius: 10px; /* bordes redondeados */
-    margin-bottom: 0.8rem; /* margen debajo */
-    border: 2px solid #764ba2; /* borde morado */
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
-/* Placeholder de imagen (si no hay imagen real) */
 .img-placeholder {
-    width: 100%; /* igual tamaño que imagen */
-    height: 150px; /* altura fija */
-    background-color: #ddd; /* fondo gris claro */
-    color: #666; /* texto gris */
-    font-size: 1.1rem; /* tamaño texto */
-    display: flex; /* contenedor flex */
-    align-items: center; /* centrado vertical */
-    justify-content: center; /* centrado horizontal */
-    border-radius: 10px; /* bordes redondeados */
-    margin-bottom: 0.8rem; /* margen debajo */
+    width: 100%;
+    height: 220px;
+    background: #e5e7eb;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #666;
 }
 
-/* Título centrado */
-h2.text-center {
-    text-align: center; /* texto centrado */
-    color: #fff; /* texto blanco */
-    font-size: 2.2rem; /* tamaño grande */
-    margin-bottom: 2rem; /* margen abajo */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* sombra texto para legibilidad */
+/* ===== NOMBRE ===== */
+.artist-card h5 {
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
 }
 
-/* Contenedor para botones de acción */
+/* ===== BOTONES ===== */
 .acciones {
-    margin-top: 10px; /* margen arriba */
+    margin-top: 15px;
 }
 
-/* Botones pequeños con estilos y colores */
-.btn-small {
-    display: inline-block; /* inline para que se alineen */
-    padding: 6px 12px; /* relleno interno */
-    margin: 4px 3px; /* margen externo */
-    text-decoration: none; /* sin subrayado */
-    border-radius: 6px; /* bordes redondeados */
-    font-size: 0.9em; /* tamaño letra */
-    color: white; /* texto blanco */
-    font-weight: 600; /* negrita */
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* sombra ligera */
-    transition: background-color 0.3s ease; /* transición suave al cambiar color */
+.btn-custom {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 5px 4px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s ease;
 }
 
-/* Variantes de color y efectos hover para botones */
-.verde { background-color: #4CAF50; }
-.verde:hover { background-color: #43a047; }
+/* Colores */
+.btn-verde { background: #22c55e; }
+.btn-verde:hover { background: #16a34a; }
 
-.rojo { background-color: #f44336; }
-.rojo:hover { background-color: #e53935; }
+.btn-rojo { background: #ef4444; }
+.btn-rojo:hover { background: #dc2626; }
 
-.azul { background-color: #2196F3; }
-.azul:hover { background-color: #1e88e5; }
+.btn-azul { background: #3b82f6; }
+.btn-azul:hover { background: #2563eb; }
 
-.amarillo { background-color: #fbc02d; color: #333; }
-.amarillo:hover { background-color: #f9a825; color: #222; }
-
-/* Fondo verde clarito para el área de artistas (sobrescribe .container) */
-.container {
-    background-color: #d9f0d9;
+.btn-amarillo {
+    background: #facc15;
+    color: #333;
+}
+.btn-amarillo:hover {
+    background: #eab308;
 }
 
-/* Botón Volver centrado y con espacio debajo */
-a.btn.btn-secondary.mt-3 {
-    display: inline-block; /* para poder dar tamaño */
-    margin: 2rem auto 0 auto; /* arriba y centrado horizontal */
-    padding: 10px 25px; /* relleno interno */
-    font-size: 1rem; /* tamaño letra */
-    border: none; /* sin borde */
-    border-radius: 8px; /* bordes redondeados */
-    background-color: #4CAF50; /* verde */
-    color: white; /* texto blanco */
-    text-align: center; /* texto centrado */
-    text-decoration: none; /* sin subrayado */
-    cursor: pointer; /* puntero mano */
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2); /* sombra */
-    transition: background-color 0.3s ease; /* transición suave */
-    display: block; /* bloque para centrado */
-    width: max-content; /* ancho ajustado al contenido */
+/* ===== BOTÓN VOLVER ===== */
+.btn-volver {
+    margin-top: 40px;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: none;
+    background: #6366f1;
+    color: white;
+    transition: 0.3s;
 }
 
-/* Hover para botón Volver */
-a.btn.btn-secondary.mt-3:hover {
-    background-color: #43a047; /* verde más oscuro */
+.btn-volver:hover {
+    background: #4f46e5;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .artist-card img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .artist-card img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .artist-card img {
+        height: 160px;
+    }
+
+    .btn-custom {
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
 }
