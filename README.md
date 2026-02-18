@@ -10,22 +10,22 @@ Este proyecto es una aplicación web en PHP que se ejecuta localmente usando XAM
 
 1. **Copiar la carpeta del proyecto a XAMPP**
 
-   Copia la carpeta `Recuperacion_Php` dentro del directorio `htdocs` de XAMPP.  
+   Copia la carpeta `TFG` dentro del directorio `htdocs` de XAMPP.  
    La ruta por defecto suele ser:  
-   `C:\xampp\htdocs\Recuperacion_Php`
+   `C:\xampp\htdocs\TFG`
 
 2. **Ejecutar el script de instalación de base de datos**
 
    Abre tu navegador y entra a la siguiente URL para ejecutar el archivo `instalar.php` y crear la base de datos y tablas necesarias:
 
-http://localhost/Recuperacion_Php/database/instalar.php
+http://localhost/TFG/database/instalar.php
 
 
 3. **Entrar a la aplicación**
 
 Una vez finalizada la instalación, vuelve a la raíz del proyecto y accede a la aplicación con esta URL:
 
-http://localhost/Recuperacion_Php/index.php
+http://localhost/TFG/index.php
 
 
 ## Uso
